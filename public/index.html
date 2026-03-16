@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="FermesDirect – Africa's Farm Supply Network. Plateforme B2B connectant fermes africaines et professionnels."/>
+<meta property="og:title" content="FermesDirect – Africa's Farm Supply Network"/>
+<meta property="og:image" content="/images/logo-clean.png"/>
+<title>FermesDirect – Africa's Farm Supply Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════════
+   FERMESDIRECT v2 — DESIGN SYSTEM
+   Brand: Montserrat + Inter | Green #1F744D + Gold #F2C705
+   ═══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#f8faf7;color:#1a2218;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+:root{
+  --g9:#0b3520; --g8:#124F2C; --g7:#1F744D; --g6:#27AE60; --g4:#4fcb87; --g1:#e8f5ee; --g0:#f0faf4;
+  --gold:#F2C705; --gold2:#ffd940; --gold3:#fff3b0; --gold-dark:#c49e00;
+  --brown:#BC542B; --brown2:#8B4513;
+  --gray9:#111; --gray8:#1a2218; --gray6:#3d4a3a; --gray5:#5a6b56; --gray4:#8a9e85; --gray3:#c4d0c1; --gray2:#e2ead0; --gray1:#f0f5ec;
+  --white:#fff; --cream:#fdfaf4;
+  --font-h:'Montserrat',sans-serif;
+  --font-b:'Inter',sans-serif;
+  --r4:4px; --r8:8px; --r12:12px; --r16:16px; --r24:24px; --rpill:999px;
+  --sh1:0 2px 8px rgba(15,21,18,.08);
+  --sh2:0 8px 28px rgba(15,21,18,.12);
+  --sh3:0 20px 56px rgba(15,21,18,.16);
+  --sh4:0 40px 90px rgba(15,21,18,.22);
+  --t:.3s cubic-bezier(.4,0,.2,1);
+  --nav:68px;
+  --max:1180px;
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────── */
+h1,h2,h3,h4{font-family:var(--font-h);font-weight:900;line-height:1.15}
+h1{font-size:clamp(1.9rem,5vw,3.6rem)}
+h2{font-size:clamp(1.55rem,3.5vw,2.5rem)}
+h3{font-size:clamp(1.1rem,2vw,1.45rem)}
+p{color:#4a5a46}
+
+/* ── LAYOUT ─────────────────────────────────── */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+.sec{padding:5rem 0}
+.sec-sm{padding:3.5rem 0}
+.sec-hdr{text-align:center;max-width:600px;margin:0 auto 3rem}
+.sec-hdr h2{margin-bottom:.75rem;color:var(--gray9)}
+.sec-hdr p{color:var(--gray5);font-size:1rem}
+.badge{display:inline-flex;align-items:center;padding:.28rem .9rem;border-radius:var(--rpill);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;background:var(--g1);color:var(--g7);margin-bottom:.75rem}
+.badge-gold{background:var(--gold3);color:var(--gold-dark)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+
+/* ── BUTTONS ─────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.7rem;border-radius:var(--r8);font-family:var(--font-b);font-weight:600;font-size:.92rem;transition:var(--t);white-space:nowrap;cursor:pointer;border:none}
+.btn-primary{background:var(--g7);color:var(--white);box-shadow:0 4px 16px rgba(31,116,77,.3)}
+.btn-primary:hover{background:var(--g8);transform:translateY(-2px);box-shadow:0 8px 24px rgba(31,116,77,.4)}
+.btn-gold{background:var(--gold);color:var(--gray9);box-shadow:0 4px 16px rgba(242,199,5,.35);font-weight:700}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(242,199,5,.45)}
+.btn-outline-w{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.6)}
+.btn-outline-w:hover{background:var(--white);color:var(--g7)}
+.btn-outline-g{background:transparent;color:var(--g7);border:2px solid var(--g7)}
+.btn-outline-g:hover{background:var(--g7);color:var(--white)}
+.btn-sm{padding:.52rem 1.1rem;font-size:.8rem}
+.btn-lg{padding:1rem 2.2rem;font-size:1rem}
+
+/* ── HEADER ─────────────────────────────────── */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav);
+  background:rgba(11,53,32,.97);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(242,199,5,.14);transition:var(--t)
+}
+.header.scrolled{box-shadow:0 4px 32px rgba(0,0,0,.3)}
+.hdr-inner{max-width:var(--max);margin:0 auto;padding:0 1.5rem;height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+
+/* ── LOGO ─────────────────────────────────── */
+.logo{display:flex;align-items:center;gap:.6rem;flex-shrink:0;text-decoration:none}
+.logo-egg{height:46px;width:46px;flex-shrink:0}  /* SVG egg icon */
+.logo-text-wrap{display:flex;flex-direction:column;line-height:1.1}
+.logo-name{font-family:var(--font-h);font-size:1.2rem;font-weight:900;color:var(--white);letter-spacing:-.01em}
+.logo-name .direct{color:var(--gold)}
+.logo-sub{font-size:.54rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.12em;margin-top:1px}
+
+/* ── NAV ─────────────────────────────────── */
+.nav-links{display:flex;align-items:center;gap:.2rem;flex:1;justify-content:center}
+.nav-a{color:rgba(255,255,255,.9);font-size:.83rem;font-weight:500;padding:.45rem .8rem;border-radius:var(--r4);transition:var(--t);cursor:pointer;white-space:nowrap}
+.nav-a:hover,.nav-a.act{color:var(--gold);background:rgba(255,255,255,.07)}
+.nav-div{width:1px;height:20px;background:rgba(255,255,255,.12);flex-shrink:0;margin:0 .3rem}
+.nav-end{display:flex;align-items:center;gap:.65rem;flex-shrink:0}
+
+/* ── LANG TOGGLE ──────────────────────────── */
+.lang-tog{display:flex;background:rgba(255,255,255,.1);border-radius:var(--rpill);padding:2px;gap:2px;flex-shrink:0}
+.lang-btn{padding:.28rem .65rem;border-radius:var(--rpill);font-size:.7rem;font-weight:700;color:rgba(255,255,255,.55);transition:var(--t);letter-spacing:.04em;cursor:pointer;border:none;background:none;font-family:inherit}
+.lang-btn.act{background:var(--gold);color:var(--gray9)}
+
+/* ── HAMBURGER ───────────────────────────── */
+.ham{display:none;flex-direction:column;gap:5px;padding:.45rem;cursor:pointer;border:none;background:none}
+.ham span{display:block;width:22px;height:2px;background:var(--white);transition:var(--t);border-radius:2px}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+.mob-nav{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--g9);padding:1rem 1.5rem 1.5rem;border-bottom:3px solid var(--gold);z-index:999;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.mob-nav.open{display:block}
+.mob-nav a,.mob-nav button{display:block;width:100%;text-align:left;color:rgba(255,255,255,.9);padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.9rem;font-weight:500;background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;font-family:inherit}
+.mob-nav a:hover,.mob-nav button:hover{color:var(--gold)}
+.mob-lang{display:flex;gap:.5rem;margin-top:1rem}
+.mob-lang-btn{flex:1;padding:.5rem;border-radius:var(--r8);border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.55);font-size:.8rem;font-weight:700;cursor:pointer;background:none;font-family:inherit;transition:var(--t)}
+.mob-lang-btn.act{background:var(--gold);color:var(--gray9);border-color:var(--gold)}
+.mob-ctas{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+
+/* ── PAGES ───────────────────────────────── */
+.page{display:none}
+.page.show{display:block}
+
+/* ── HERO ─────────────────────────────────── */
+.hero{
+  min-height:100vh;position:relative;overflow:hidden;
+  display:flex;align-items:center;padding-top:var(--nav);
+  background:linear-gradient(135deg,var(--g9) 0%,var(--g8) 55%,var(--g7) 100%)
+}
+.hero-bg{position:absolute;right:0;bottom:0;width:52%;height:80%;object-fit:cover;opacity:.13;-webkit-mask-image:linear-gradient(to left,rgba(0,0,0,.5),transparent 65%);mask-image:linear-gradient(to left,rgba(0,0,0,.5),transparent 65%)}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 70% 40%,rgba(242,199,5,.07),transparent 60%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:4rem 0;min-height:calc(100vh - var(--nav))}
+.eyebrow{display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem}
+.eyebrow-bar{width:32px;height:2px;background:var(--gold)}
+.eyebrow-txt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);font-family:var(--font-h)}
+.hero h1{color:var(--white);margin-bottom:1.15rem}
+.hero h1 em{font-style:normal;color:var(--gold);display:block}
+.hero-p{color:rgba(255,255,255,.73);font-size:1rem;max-width:490px;margin-bottom:2rem;line-height:1.7}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2.75rem}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap}
+.h-stat-n{font-family:var(--font-h);font-size:1.75rem;font-weight:900;color:var(--gold);line-height:1}
+.h-stat-l{font-size:.68rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+
+/* ── VIDEO PLACEHOLDER ───────────────────── */
+.vid-wrap{position:relative;border-radius:var(--r24);overflow:hidden;border:2px solid rgba(242,199,5,.2);box-shadow:var(--sh4),0 0 60px rgba(242,199,5,.1);aspect-ratio:16/9;background:var(--g8);cursor:pointer}
+.vid-thumb{width:100%;height:100%;object-fit:cover;opacity:.65;transition:.5s}
+.vid-wrap:hover .vid-thumb{opacity:.88;transform:scale(1.04)}
+.vid-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;background:linear-gradient(135deg,rgba(11,53,32,.5),rgba(11,53,32,.2))}
+.play-btn{width:70px;height:70px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;animation:pulse 2.5s infinite;transition:var(--t)}
+.play-btn svg{width:22px;height:22px;fill:var(--gray9);margin-left:4px}
+.play-btn:hover{background:var(--gold2);transform:scale(1.1)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(242,199,5,.55)}70%{box-shadow:0 0 0 22px rgba(242,199,5,0)}100%{box-shadow:0 0 0 0 rgba(242,199,5,0)}}
+.vid-lbl{color:var(--white);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}
+.vid-sub{color:rgba(255,255,255,.5);font-size:.7rem;font-family:monospace}
+.vid-cap{display:flex;align-items:center;gap:.6rem;margin-top:.7rem;color:rgba(255,255,255,.42);font-size:.7rem}
+.vid-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:blink 1.5s infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* ── MODAL ───────────────────────────────── */
+.modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
+.modal.open{display:flex}
+.modal-inner{width:90vw;max-width:880px;position:relative;border-radius:var(--r16);overflow:hidden}
+.modal-close{position:absolute;top:-38px;right:0;color:var(--white);font-size:1.55rem;cursor:pointer;opacity:.7;padding:.4rem}
+.modal-close:hover{opacity:1}
+.vid-frame{aspect-ratio:16/9;background:#000;display:flex;align-items:center;justify-content:center}
+.vid-frame p{color:rgba(255,255,255,.55);text-align:center;padding:2.5rem;font-size:.88rem;line-height:1.7}
+
+/* ── TICKER ──────────────────────────────── */
+.ticker{background:var(--gold);overflow:hidden;padding:.68rem 0;white-space:nowrap}
+.ticker-inner{display:inline-flex;animation:scroll 28s linear infinite}
+.tick-item{font-weight:700;font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;padding:0 2.25rem;color:var(--gray9)}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── STEPS ───────────────────────────────── */
+.steps-wrap{background:var(--gray1)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.steps::before{content:'';position:absolute;top:42px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);height:2px;background:linear-gradient(to right,var(--g7),var(--gold))}
+.step{text-align:center;padding:0 1.1rem;position:relative;z-index:1}
+.step-num{width:84px;height:84px;border-radius:50%;margin:0 auto 1.1rem;background:var(--white);border:2.5px solid var(--g7);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:1.5rem;font-weight:900;color:var(--g7);box-shadow:var(--sh2);transition:var(--t)}
+.step:hover .step-num{background:var(--g7);color:var(--white);transform:scale(1.08)}
+.step-lbl{font-family:var(--font-h);font-weight:700;font-size:.88rem;color:var(--gray8);margin-bottom:.35rem}
+.step-txt{font-size:.8rem;color:var(--gray5);line-height:1.55}
+
+/* ── FEATURES ────────────────────────────── */
+.feat-card{background:var(--white);border-radius:var(--r16);padding:1.65rem;border:1px solid var(--gray2);transition:var(--t);position:relative;overflow:hidden}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--g7),var(--gold));opacity:0;transition:var(--t)}
+.feat-card:hover{transform:translateY(-5px);box-shadow:var(--sh2);border-color:rgba(31,116,77,.22)}
+.feat-card:hover::before{opacity:1}
+.feat-ico{font-size:1.9rem;margin-bottom:.9rem;display:block}
+.feat-ttl{font-family:var(--font-h);font-weight:700;font-size:.92rem;margin-bottom:.45rem;color:var(--gray8)}
+.feat-p{font-size:.8rem;color:var(--gray5);line-height:1.6}
+
+/* ── STATS BAR ───────────────────────────── */
+.stats-bar{background:linear-gradient(135deg,var(--g7),var(--g9));padding:3.5rem 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+.s-num{font-family:var(--font-h);font-size:clamp(1.8rem,3.5vw,2.9rem);font-weight:900;color:var(--gold);display:block}
+.s-lbl{font-size:.74rem;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.06em;margin-top:.4rem;display:block}
+
+/* ── DUAL CTA ────────────────────────────── */
+.dcta{display:grid;grid-template-columns:1fr 1fr}
+.dcta-p{padding:3.75rem 2.75rem;position:relative;overflow:hidden}
+.dcta-p::before{content:'';position:absolute;top:-45px;right:-45px;width:170px;height:170px;border-radius:50%;background:rgba(242,199,5,.055);border:1.5px solid rgba(242,199,5,.1)}
+.dcta-buyer{background:linear-gradient(135deg,var(--g8),var(--g7))}
+.dcta-farm{background:linear-gradient(135deg,var(--g9),var(--brown2))}
+.dcta-ico{font-size:2.6rem;margin-bottom:.7rem;display:block}
+.dcta-p h3{font-family:var(--font-h);font-size:clamp(1.3rem,2vw,1.7rem);color:var(--white);margin-bottom:.6rem}
+.dcta-p p{color:rgba(255,255,255,.7);font-size:.88rem;margin-bottom:1.4rem;line-height:1.65}
+.dcta-list{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.6rem}
+.dcta-list li{font-size:.82rem;color:rgba(255,255,255,.78)}
+
+/* ── GALLERY ─────────────────────────────── */
+.gallery{display:grid;grid-template-columns:1.65fr 1fr 1fr;grid-template-rows:330px 230px;gap:4px;background:var(--g9);overflow:hidden}
+.gal-item{overflow:hidden;position:relative;cursor:pointer;background:var(--g8)}
+.gal-item:first-child{grid-row:span 2}
+.gal-item:nth-child(2){grid-column:2;grid-row:1}
+.gal-item:nth-child(3){grid-column:3;grid-row:1}
+.gal-item:nth-child(4){grid-column:2;grid-row:2}
+.gal-item:nth-child(5){grid-column:3;grid-row:2}
+.gal-item img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.85);transition:transform .5s ease,filter .5s ease;display:block}
+.gal-item:first-child img{object-position:center 25%}
+.gal-item:nth-child(2) img{object-position:center 20%}
+.gal-item:nth-child(3) img{object-position:center 40%}
+.gal-item:nth-child(4) img{object-position:center 30%}
+.gal-item:nth-child(5) img{object-position:center 25%}
+.gal-item:hover img{transform:scale(1.05);filter:brightness(1)}
+.gal-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,53,32,.9) 0%,rgba(11,53,32,.15) 55%,transparent 100%);opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;padding:1.1rem 1.2rem}
+.gal-item:hover .gal-ov{opacity:1}
+.gal-lbl{color:var(--white);font-size:.8rem;font-weight:700;font-family:var(--font-h);letter-spacing:.02em;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+
+/* ── TESTIMONIALS ────────────────────────── */
+.test-sec{background:var(--cream)}
+.test-card{background:var(--white);border-radius:var(--r16);padding:1.7rem;border:1px solid var(--gray2);transition:var(--t)}
+.test-card:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+.stars{color:var(--gold);font-size:1rem;margin-bottom:.85rem}
+.test-q{font-size:.86rem;color:var(--gray6);font-style:italic;margin-bottom:1.25rem;line-height:1.7}
+.test-author{display:flex;align-items:center;gap:.75rem}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--g7);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:.75rem;font-family:var(--font-h);flex-shrink:0}
+.author-name{font-weight:700;font-size:.82rem;color:var(--gray8)}
+.author-role{font-size:.7rem;color:var(--gray4)}
+
+/* ── PRICING ─────────────────────────────── */
+.ptog{display:inline-flex;background:var(--gray2);border-radius:var(--rpill);padding:3px;gap:3px;margin-bottom:2.25rem}
+.ptog-btn{padding:.52rem 1.65rem;border-radius:var(--rpill);font-weight:700;font-size:.82rem;color:var(--gray5);transition:var(--t);cursor:pointer;border:none;background:none;font-family:inherit;white-space:nowrap}
+.ptog-btn.act{background:var(--g7);color:var(--white);box-shadow:0 2px 8px rgba(31,116,77,.25)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:900px;margin:0 auto}
+.pc{background:var(--white);border-radius:var(--r24);padding:2.1rem 1.65rem;border:2px solid var(--gray2);transition:var(--t);position:relative;overflow:hidden}
+.pc.pop{border-color:var(--g7);transform:scale(1.04);box-shadow:var(--sh3),0 0 0 4px rgba(31,116,77,.07)}
+.pc:hover:not(.pop){border-color:var(--g4);box-shadow:var(--sh2);transform:translateY(-4px)}
+.pop-badge{position:absolute;top:1.1rem;right:1.1rem;background:var(--gold);color:var(--gray9);font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;padding:.25rem .7rem;border-radius:var(--rpill)}
+.pc-tier{font-family:monospace;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--g6);margin-bottom:.3rem}
+.pc-name{font-family:var(--font-h);font-size:1.4rem;font-weight:900;color:var(--gray9);margin-bottom:.95rem}
+.pc-price{display:flex;align-items:baseline;gap:.2rem;margin-bottom:1.15rem}
+.pc-cur{font-size:.95rem;font-weight:700;color:var(--gray5)}
+.pc-amt{font-family:var(--font-h);font-size:2.65rem;font-weight:900;color:var(--g7);line-height:1}
+.pc-per{font-size:.82rem;color:var(--gray4)}
+.pc-hr{height:1px;background:var(--gray2);margin:1.15rem 0}
+.pc-feats{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.6rem}
+.pc-feat{display:flex;align-items:flex-start;gap:.65rem;font-size:.82rem;color:var(--gray6)}
+.pc-chk{color:var(--g7);font-weight:700;font-size:.92rem;flex-shrink:0}
+.pc-dash{color:var(--gray3)}
+.pc .btn{width:100%}
+
+/* ── FORMS ───────────────────────────────── */
+.form-sec{background:var(--g0);padding-top:calc(var(--nav) + 4rem);padding-bottom:4rem}
+.form-card{background:var(--white);border-radius:var(--r24);padding:2.75rem;max-width:680px;margin:0 auto;box-shadow:var(--sh3);border:1px solid var(--gray2)}
+.form-hdr{text-align:center;margin-bottom:2rem}
+.form-hdr .ico{font-size:3rem;display:block;margin-bottom:.7rem}
+.form-hdr h1{font-size:1.85rem;margin-bottom:.4rem}
+.form-hdr p{font-size:.86rem;color:var(--gray5)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.f-grp{margin-bottom:1.2rem}
+.f-grp label{display:block;font-weight:600;font-size:.8rem;margin-bottom:.38rem;color:var(--gray6)}
+.f-ctrl{width:100%;padding:.72rem .9rem;border:2px solid var(--gray2);border-radius:var(--r8);font-family:var(--font-b);font-size:.88rem;background:var(--white);color:var(--gray8);transition:var(--t);outline:none}
+.f-ctrl:focus{border-color:var(--g6);box-shadow:0 0 0 3px rgba(39,174,96,.1)}
+.f-ctrl.err{border-color:#e53e3e}
+.f-err{font-size:.74rem;color:#e53e3e;margin-top:.25rem;display:none}
+.f-err.show{display:block}
+.plan-sel{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+.plan-opt{padding:.9rem .7rem;border:2px solid var(--gray2);border-radius:var(--r8);cursor:pointer;text-align:center;transition:var(--t)}
+.plan-opt:hover,.plan-opt.sel{border-color:var(--g7);background:rgba(31,116,77,.04);box-shadow:0 0 0 3px rgba(31,116,77,.07)}
+.plan-opt.sel{border-color:var(--g7)}
+.plan-p{font-family:var(--font-h);font-size:1rem;font-weight:900;color:var(--g7);display:block}
+.plan-n{font-weight:700;font-size:.72rem;display:block;margin-top:.18rem}
+.plan-v{font-size:.64rem;color:var(--gray4)}
+.chk-group{display:flex;flex-wrap:wrap;gap:.55rem}
+.chk-item{display:flex;align-items:center;gap:.38rem;font-size:.84rem;color:var(--gray6);cursor:pointer}
+.chk-item input{accent-color:var(--g7);width:14px;height:14px}
+.f-submit{width:100%;padding:.95rem;background:var(--g7);color:var(--white);border:none;border-radius:var(--r8);font-family:var(--font-h);font-size:.95rem;font-weight:700;cursor:pointer;transition:var(--t);margin-top:1.2rem}
+.f-submit:hover{background:var(--g8);transform:translateY(-1px)}
+.f-hint{text-align:center;font-size:.72rem;color:var(--gray4);margin-top:.7rem}
+.f-success{display:none;background:var(--g1);border:2px solid var(--g6);border-radius:var(--r8);padding:1.75rem;text-align:center;margin-top:1.5rem}
+.f-success.show{display:block}
+.f-success .ico{font-size:2.4rem;display:block;margin-bottom:.6rem}
+.f-success-msg{font-weight:700;color:var(--g7);font-size:.95rem}
+
+/* ── CONTACT ─────────────────────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.55fr;gap:4rem;align-items:start}
+.ci-item{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:1.1rem}
+.ci-ico{width:40px;height:40px;border-radius:var(--r8);background:var(--g1);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.ci-lbl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray5)}
+.ci-val{font-weight:600;color:var(--gray8);font-size:.86rem}
+
+/* ── ABOUT ───────────────────────────────── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-img{border-radius:var(--r24);overflow:hidden;box-shadow:var(--sh3)}
+.about-img img{width:100%;height:380px;object-fit:cover;display:block}
+.about-nums{display:flex;gap:2.25rem;margin-top:1.65rem;flex-wrap:wrap}
+.a-num{font-family:var(--font-h);font-size:1.75rem;font-weight:900;color:var(--g7)}
+.a-lbl{font-size:.7rem;color:var(--gray5);text-transform:uppercase;letter-spacing:.05em}
+.val-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.15rem}
+.val-card{background:var(--white);border-radius:var(--r12);padding:1.4rem;border-left:4px solid var(--g7);box-shadow:var(--sh1);transition:var(--t)}
+.val-card:hover{transform:translateX(4px);box-shadow:var(--sh2)}
+.val-ico{font-size:1.7rem;margin-bottom:.6rem}
+.val-t{font-family:var(--font-h);font-weight:700;font-size:.88rem;margin-bottom:.38rem;color:var(--gray8)}
+.val-p{font-size:.8rem;color:var(--gray5);line-height:1.6}
+
+/* ── PAGE HERO ───────────────────────────── */
+.page-hero{padding:calc(var(--nav) + 4rem) 0 4rem;background:linear-gradient(135deg,var(--g9),var(--g8));color:var(--white);text-align:center;position:relative;overflow:hidden}
+.page-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 50% 110%,rgba(242,199,5,.06),transparent 65%)}
+.page-hero .wrap{position:relative;z-index:1}
+.page-hero h1{margin-bottom:.85rem}
+.page-hero p{color:rgba(255,255,255,.7);max-width:540px;margin:0 auto;font-size:1rem}
+
+/* ── DASHBOARD ───────────────────────────── */
+.dash{display:grid;grid-template-columns:210px 1fr;min-height:calc(100vh - var(--nav));margin-top:var(--nav)}
+.dash-sb{background:var(--white);border-right:1px solid var(--gray2);padding:1.15rem 0;position:sticky;top:var(--nav);height:calc(100vh - var(--nav));overflow-y:auto}
+.dash-sb-hdr{padding:0 1.15rem 1.1rem;border-bottom:1px solid var(--gray1);margin-bottom:.6rem}
+.dash-uname{font-weight:700;font-size:.85rem;color:var(--gray8)}
+.dash-uemail{font-size:.72rem;color:var(--gray5)}
+.dash-plan{display:inline-block;background:var(--g1);color:var(--g7);font-size:.62rem;font-weight:700;padding:.2rem .65rem;border-radius:var(--rpill);margin-top:.35rem}
+.dash-grp{padding:.32rem 1.15rem .22rem;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gray4);margin-top:.35rem}
+.dash-nav-item{display:flex;align-items:center;gap:.6rem;padding:.62rem 1.15rem;font-size:.8rem;font-weight:500;color:var(--gray5);cursor:pointer;transition:var(--t);border-right:3px solid transparent}
+.dash-nav-item:hover,.dash-nav-item.act{color:var(--g7);background:var(--g1);border-right-color:var(--g7)}
+.dash-nav-ico{font-size:1rem}
+.dash-main{background:var(--gray1);padding:2rem}
+.dash-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.4rem;flex-wrap:wrap;gap:.8rem}
+.dash-ttl{font-family:var(--font-h);font-size:1.15rem;font-weight:900;color:var(--gray9)}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-bottom:1.35rem}
+.kpi{background:var(--white);border-radius:var(--r12);padding:1.3rem;border:1px solid var(--gray2)}
+.kpi-lbl{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--gray4);margin-bottom:.35rem}
+.kpi-val{font-family:var(--font-h);font-size:1.5rem;font-weight:900;color:var(--gray9);line-height:1}
+.kpi-sub{font-size:.68rem;color:var(--g6);font-weight:600;margin-top:.28rem}
+.chart-card{background:var(--white);border-radius:var(--r12);border:1px solid var(--gray2);padding:1.3rem}
+.chart-ttl{font-weight:700;font-size:.82rem;color:var(--gray8);margin-bottom:.9rem}
+.bars{display:flex;align-items:flex-end;gap:5px;height:88px}
+.bar{flex:1;border-radius:3px 3px 0 0;background:rgba(31,116,77,.42);min-height:3px;cursor:pointer;transition:.2s}
+.bar:hover{background:var(--g7)}
+.bar.gold-bar{background:rgba(242,199,5,.62)}
+.bar.gold-bar:hover{background:var(--gold)}
+.bl{display:flex;gap:5px;margin-top:5px}
+.bl span{flex:1;text-align:center;font-size:.58rem;color:var(--gray4)}
+.ot{background:var(--white);border-radius:var(--r12);border:1px solid var(--gray2);overflow:hidden;margin-top:1.35rem}
+.ot-hdr{padding:.82rem 1.2rem;border-bottom:1px solid var(--gray1);display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.82rem}
+.otable{width:100%;border-collapse:collapse;font-size:.78rem}
+.otable th{text-align:left;padding:.62rem 1.2rem;font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--gray4);background:var(--gray1);border-bottom:1px solid var(--gray2)}
+.otable td{padding:.88rem 1.2rem;border-bottom:1px solid var(--gray1);color:var(--gray6)}
+.otable tr:hover td{background:var(--gray1)}
+.pill{display:inline-flex;align-items:center;gap:.28rem;padding:.2rem .65rem;border-radius:var(--rpill);font-size:.68rem;font-weight:700}
+.pill-ok{background:#dcfce7;color:#166534}
+.pill-tr{background:#fef9c3;color:#854d0e}
+.pill-pd{background:var(--gray1);color:var(--gray6)}
+
+/* ── FOOTER ──────────────────────────────── */
+.footer{background:var(--gray9);color:rgba(255,255,255,.62)}
+.footer-top{padding:4rem 0 2.5rem}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem}
+.foot-brand{}
+.foot-logo{display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem}
+.foot-logo-name{font-family:var(--font-h);font-size:1.12rem;font-weight:900;color:var(--white)}
+.foot-logo-name .direct{color:var(--gold)}
+.foot-tag{font-size:.78rem;margin-bottom:1.2rem;line-height:1.65;max-width:270px}
+.foot-socials{display:flex;gap:.55rem}
+.foot-soc{width:34px;height:34px;border-radius:var(--r4);background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;transition:var(--t);color:rgba(255,255,255,.62)}
+.foot-soc:hover{background:var(--g7);color:var(--white)}
+.foot-col-t{font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:var(--white);margin-bottom:.95rem}
+.foot-links{display:flex;flex-direction:column;gap:.5rem}
+.foot-link{font-size:.82rem;transition:var(--t);cursor:pointer}
+.foot-link:hover{color:var(--gold);padding-left:3px}
+.foot-hr{border:none;border-top:1px solid rgba(255,255,255,.07)}
+.foot-bot{padding:1.2rem 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.7rem;font-size:.76rem}
+.foot-badges{display:flex;gap:.45rem}
+.fbadge{background:rgba(242,199,5,.12);color:var(--gold);border:1px solid rgba(242,199,5,.2);padding:.2rem .65rem;border-radius:var(--rpill);font-size:.65rem;font-weight:700}
+
+/* ── ANIMATIONS ──────────────────────────── */
+[data-a]{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+[data-a].vis{opacity:1;transform:translateY(0)}
+[data-a="l"]{transform:translateX(-26px)}
+[data-a="l"].vis{transform:translateX(0)}
+[data-a="r"]{transform:translateX(26px)}
+[data-a="r"].vis{transform:translateX(0)}
+[data-a="s"]{transform:scale(.93)}
+[data-a="s"].vis{transform:scale(1)}
+[data-d="1"]{transition-delay:.1s}
+[data-d="2"]{transition-delay:.2s}
+[data-d="3"]{transition-delay:.3s}
+[data-d="4"]{transition-delay:.4s}
+
+/* ── TOAST ───────────────────────────────── */
+.toast-wrap{position:fixed;bottom:1.75rem;right:1.75rem;z-index:9999;display:flex;flex-direction:column;gap:.55rem}
+.toast{background:var(--gray9);color:var(--white);padding:.85rem 1.35rem;border-radius:var(--r8);box-shadow:var(--sh3);display:flex;align-items:center;gap:.6rem;min-width:250px;max-width:370px;border-left:4px solid var(--g6);transform:translateX(120%);transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.toast.show{transform:translateX(0)}
+.toast.err{border-left-color:#e53e3e}
+.toast-msg{font-size:.82rem;flex:1}
+
+/* ── SCROLLBAR ───────────────────────────── */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--gray1)}
+::-webkit-scrollbar-thumb{background:var(--g6);border-radius:3px}
+
+/* ── RESPONSIVE ──────────────────────────── */
+@media(max-width:1024px){
+  .g4{grid-template-columns:1fr 1fr}
+  .steps::before{display:none}
+  .steps{grid-template-columns:1fr 1fr;gap:2rem}
+  .dcta{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .about-img{order:-1}
+  .contact-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:280px 220px 220px}
+  .gallery .gal-item:first-child{grid-row:span 2}
+  .gallery .gal-item:nth-child(4){grid-column:1;grid-row:3}
+  .gallery .gal-item:nth-child(5){grid-column:2;grid-row:3}
+}
+@media(max-width:900px){
+  .nav-links,.nav-end{display:none}
+  .ham{display:flex}
+  .lang-tog{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-bg{width:100%;opacity:.09}
+  .g2,.g3{grid-template-columns:1fr}
+  .pgrid{grid-template-columns:1fr;max-width:400px}
+  .pc.pop{transform:none}
+  .dash{grid-template-columns:1fr}
+  .dash-sb{display:none}
+  .kpi-grid{grid-template-columns:1fr 1fr}
+  .sec{padding:3.25rem 0}
+  .dcta-p{padding:3rem 1.75rem}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:240px 180px 180px}
+  .gallery .gal-item:first-child{grid-column:span 2;grid-row:1}
+  .gallery .gal-item:nth-child(2){grid-column:1;grid-row:2}
+  .gallery .gal-item:nth-child(3){grid-column:2;grid-row:2}
+  .gallery .gal-item:nth-child(4){grid-column:1;grid-row:3}
+  .gallery .gal-item:nth-child(5){grid-column:2;grid-row:3}
+  .about-grid{gap:2.5rem}
+  .f-row{grid-template-columns:1fr}
+  .plan-sel{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .hero-ctas{flex-direction:column}
+  .hero-stats{gap:1.5rem}
+  .g4{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-bot{flex-direction:column;text-align:center}
+  .val-grid{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     INLINE SVG EGG LOGO — Extracted from
+     official FermesDirect branding package
+     Colors: #1F744D #124F2C #27AE60 #F2C705 #BC542B
+     ══════════════════════════════════════════ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="fd-egg" viewBox="0 0 120 140">
+  <defs>
+    <clipPath id="egg-cp">
+      <ellipse cx="60" cy="76" rx="52" ry="62"/>
+    </clipPath>
+  </defs>
+  <!-- Outer egg shell – thick dark green border -->
+  <ellipse cx="60" cy="76" rx="58" ry="68" fill="#124F2C"/>
+  <!-- Inner sky area -->
+  <ellipse cx="60" cy="76" rx="52" ry="62" fill="#6BAED6" clip-path="url(#egg-cp)"/>
+  <!-- Golden horizon glow -->
+  <ellipse cx="60" cy="38" rx="38" ry="22" fill="#F2C705" opacity=".3" clip-path="url(#egg-cp)"/>
+  <!-- Sun rays – 7 lines -->
+  <g clip-path="url(#egg-cp)" stroke="#F2C705" stroke-width="2.2" stroke-linecap="round">
+    <line x1="60" y1="8"  x2="60" y2="18"/>
+    <line x1="77" y1="12" x2="73" y2="20"/>
+    <line x1="88" y1="24" x2="82" y2="29"/>
+    <line x1="91" y1="40" x2="84" y2="40"/>
+    <line x1="43" y1="12" x2="47" y2="20"/>
+    <line x1="32" y1="24" x2="38" y2="29"/>
+    <line x1="29" y1="40" x2="36" y2="40"/>
+  </g>
+  <!-- Sun circle outer – gold -->
+  <circle cx="60" cy="34" r="14" fill="#F2C705" clip-path="url(#egg-cp)"/>
+  <!-- Sun inner – cream -->
+  <circle cx="60" cy="34" r="9"  fill="#FFFDE7" clip-path="url(#egg-cp)"/>
+  <!-- Back hill – very dark green -->
+  <path d="M8 86 Q28 68 56 78 Q84 88 112 72 L112 138 L8 138 Z"
+        clip-path="url(#egg-cp)" fill="#124F2C"/>
+  <!-- Gold crop stripe 1 -->
+  <path d="M8 94 Q60 86 112 90 L112 101 Q60 97 8 104 Z"
+        clip-path="url(#egg-cp)" fill="#F2C705"/>
+  <!-- Mid hill – primary green -->
+  <path d="M8 103 Q32 90 60 97 Q90 104 112 93 L112 138 L8 138 Z"
+        clip-path="url(#egg-cp)" fill="#1F744D"/>
+  <!-- Gold crop stripe 2 -->
+  <path d="M8 114 Q60 107 112 111 L112 120 Q60 117 8 122 Z"
+        clip-path="url(#egg-cp)" fill="#F2C705"/>
+  <!-- Front hill – brighter green -->
+  <path d="M8 122 Q32 114 60 118 Q88 122 112 114 L112 138 L8 138 Z"
+        clip-path="url(#egg-cp)" fill="#27AE60"/>
+  <!-- Bottom base -->
+  <rect x="8" y="134" width="104" height="6" clip-path="url(#egg-cp)" fill="#1F744D"/>
+  <!-- Decorative leaf – lower-left, slightly outside oval -->
+  <path d="M28 118 Q4 94 10 122 Q16 142 42 134 Q60 126 44 122 Q30 118 28 118 Z"
+        fill="#27AE60"/>
+  <path d="M10 122 Q28 118 42 134" fill="none" stroke="#1F744D" stroke-width=".9" opacity=".4"/>
+  <!-- White inner oval ring for polish -->
+  <ellipse cx="60" cy="76" rx="52" ry="62" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.4"/>
+</symbol>
+</svg>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header class="header" id="hdr">
+  <div class="hdr-inner">
+    <a class="logo" href="#" onclick="goPage('home', null, false, event)" aria-label="FermesDirect">
+      <img src="/images/logo-clean.png" alt="FermesDirect Logo" class="logo-egg" style="height:46px;width:46px;object-fit:contain;flex-shrink:0;border-radius:4px;"/>
+      <div class="logo-text-wrap">
+        <span class="logo-name">Fermes<span class="direct">Direct</span></span>
+        <span class="logo-sub">Africa's Farm Supply Network</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" aria-label="Principal">
+      <span class="nav-a act" onclick="goPage('home', null, false, event)"       data-i18n="nav_home">Accueil</span>
+      <span class="nav-a"     onclick="goPage('about', null, false, event)"      data-i18n="nav_about">À Propos</span>
+      <span class="nav-a"     onclick="goPage('how', null, false, event)"        data-i18n="nav_how">Comment ça marche</span>
+      <span class="nav-a"     onclick="goPage('pricing', null, false, event)"    data-i18n="nav_price">Tarifs</span>
+      <span class="nav-a"     onclick="goPage('contact', null, false, event)"    data-i18n="nav_contact">Contact</span>
+      <span class="nav-a"     onclick="goPage('dashboard', null, false, event)"  data-i18n="nav_dash">Dashboard</span>
+    </nav>
+
+    <div class="nav-end">
+      <div class="lang-tog" role="group" aria-label="Language">
+        <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+      <div class="nav-div"></div>
+      <button class="btn btn-outline-w btn-sm" onclick="goPage('register-farmer', null, false, event)" data-i18n="btn_farmer">Je suis Fermier</button>
+      <button class="btn btn-gold btn-sm"       onclick="goPage('register-buyer', null, false, event)"  data-i18n="btn_buyer">Je suis Acheteur</button>
+    </div>
+    <button class="ham" id="ham" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mob-nav">
+  <span class="nav-a" onclick="goPage('home', null, false, event);closeNav()"        data-i18n="nav_home">Accueil</span>
+  <span class="nav-a" onclick="goPage('about');closeNav()"       data-i18n="nav_about">À Propos</span>
+  <span class="nav-a" onclick="goPage('how');closeNav()"         data-i18n="nav_how">Comment ça marche</span>
+  <span class="nav-a" onclick="goPage('pricing');closeNav()"     data-i18n="nav_price">Tarifs</span>
+  <span class="nav-a" onclick="goPage('contact');closeNav()"     data-i18n="nav_contact">Contact</span>
+  <div class="mob-lang">
+    <button class="mob-lang-btn" id="mob-fr" onclick="setLang('fr')">FR</button>
+    <button class="mob-lang-btn" id="mob-en" onclick="setLang('en')">EN</button>
+  </div>
+  <div class="mob-ctas">
+    <button class="btn btn-outline-g" onclick="goPage('register-farmer');closeNav()" data-i18n="btn_farmer">Je suis Fermier</button>
+    <button class="btn btn-gold"      onclick="goPage('register-buyer');closeNav()"  data-i18n="btn_buyer">Je suis Acheteur</button>
+  </div>
+</div>
+
+<!-- ═══════════════ HOME ═══════════════ -->
+<main class="page show" id="page-home">
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-glow"></div>
+  <img class="hero-bg" src="/images/fd-hub-aerial.jpg" alt="" aria-hidden="true"
+       onerror="this.style.display='none'"/>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow" data-a>
+          <div class="eyebrow-bar"></div>
+          <span class="eyebrow-txt" data-i18n="hero_eyebrow">Plateforme B2B · Africa's #1</span>
+        </div>
+        <h1 data-a data-d="1">
+          <span data-i18n="hero_h1_a">Des Fermes Africaines</span><br/>
+          <em data-i18n="hero_h1_b">Directement à Votre Table</em>
+        </h1>
+        <p class="hero-p" data-a data-d="2" data-i18n="hero_p">
+          FermesDirect connecte les meilleures fermes africaines avec les restaurants, hôtels, supermarchés et distributeurs. Fraîcheur garantie, livraison rapide, abonnements flexibles.
+        </p>
+        <div class="hero-ctas" data-a data-d="3">
+          <button class="btn btn-gold btn-lg" onclick="goPage('register-buyer', null, false, event)">
+            <span data-i18n="hero_cta1">Démarrer comme Acheteur</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn btn-outline-w btn-lg" onclick="goPage('register-farmer', null, false, event)" data-i18n="hero_cta2">Rejoindre comme Fermier</button>
+        </div>
+        <div class="hero-stats" data-a data-d="4">
+          <div>
+            <div class="h-stat-n" data-cnt data-tgt="500" data-sfx="+">500+</div>
+            <div class="h-stat-l" data-i18n="stat1">Fermes partenaires</div>
+          </div>
+          <div>
+            <div class="h-stat-n" data-cnt data-tgt="12">12</div>
+            <div class="h-stat-l" data-i18n="stat2">Pays africains</div>
+          </div>
+          <div>
+            <div class="h-stat-n" data-cnt data-tgt="98.5" data-sfx="%" data-dec="1">98.5%</div>
+            <div class="h-stat-l" data-i18n="stat3">Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO PLACEHOLDER -->
+      <div data-a="r" data-d="2">
+        <div class="vid-wrap" id="vid-trig" tabindex="0" role="button" aria-label="Voir la vidéo">
+          <img class="vid-thumb" src="/images/fd-hub-aerial.jpg" alt="FermesDirect Hub"
+               onerror="this.style.background='linear-gradient(135deg,#124F2C,#0b3520)'"/>
+          <div class="vid-overlay">
+            <button class="play-btn" aria-label="Play">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </button>
+            <span class="vid-lbl" data-i18n="vid_lbl">Voir la Présentation</span>
+            <span class="vid-sub">3:45 min</span>
+          </div>
+        </div>
+        <div class="vid-cap">
+          <div class="vid-dot"></div>
+          <span data-i18n="vid_cap">Hub FermesDirect · Logistique Urbaine · Fresh from Farm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO MODAL -->
+<div class="modal" id="vid-modal" role="dialog" aria-modal="true">
+  <div class="modal-inner">
+    <button class="modal-close" id="vid-close" aria-label="Fermer">&times;</button>
+    <div class="vid-frame">
+      <!--
+        REPLACE THIS COMMENT WITH YOUR VIDEO IFRAME:
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1"
+          width="100%" height="100%" frameborder="0"
+          allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      -->
+      <p data-i18n="vid_ph">🎬 Insérez votre iframe YouTube/Vimeo ici.<br/>
+      <code>src="https://www.youtube.com/embed/YOUR_ID?autoplay=1"</code></p>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="tick-item" data-i18n="t1">🌾 Fresh From Farm</span><span class="tick-item">✦</span>
+    <span class="tick-item" data-i18n="t2">⚡ Livraison 24h–48h</span><span class="tick-item">✦</span>
+    <span class="tick-item" data-i18n="t3">🤝 Abonnements B2B</span><span class="tick-item">✦</span>
+    <span class="tick-item" data-i18n="t4">🌍 12 Pays Africains</span><span class="tick-item">✦</span>
+    <span class="tick-item" data-i18n="t5">🥚 Œufs · Poulets · Légumes · Fruits</span><span class="tick-item">✦</span>
+    <span class="tick-item" data-i18n="t6">💚 Certifié Non-OGM</span><span class="tick-item">✦</span>
+    <span class="tick-item" data-i18n="t1">🌾 Fresh From Farm</span><span class="tick-item">✦</span>
+    <span class="tick-item" data-i18n="t2">⚡ Livraison 24h–48h</span><span class="tick-item">✦</span>
+    <span class="tick-item" data-i18n="t3">🤝 Abonnements B2B</span><span class="tick-item">✦</span>
+    <span class="tick-item" data-i18n="t4">🌍 12 Pays Africains</span><span class="tick-item">✦</span>
+    <span class="tick-item" data-i18n="t5">🥚 Œufs · Poulets · Légumes · Fruits</span><span class="tick-item">✦</span>
+    <span class="tick-item" data-i18n="t6">💚 Certifié Non-OGM</span><span class="tick-item">✦</span>
+  </div>
+</div>
+
+<!-- STEPS -->
+<section class="sec steps-wrap">
+  <div class="wrap">
+    <div class="sec-hdr" data-a>
+      <span class="badge" data-i18n="how_badge">Processus Simple</span>
+      <h2 data-i18n="how_h2">Comment Fonctionne FermesDirect</h2>
+      <p data-i18n="how_p">De la ferme à votre cuisine en 4 étapes simples et transparentes</p>
+    </div>
+    <div class="steps">
+      <div class="step" data-a data-d="1"><div class="step-num">1</div><div class="step-lbl" data-i18n="s1l">Inscrivez-vous</div><div class="step-txt" data-i18n="s1t">Choisissez votre plan et créez votre profil en 5 minutes</div></div>
+      <div class="step" data-a data-d="2"><div class="step-num">2</div><div class="step-lbl" data-i18n="s2l">Connectez-vous</div><div class="step-txt" data-i18n="s2t">Notre algorithme vous met en relation avec les meilleurs partenaires</div></div>
+      <div class="step" data-a data-d="3"><div class="step-num">3</div><div class="step-lbl" data-i18n="s3l">Commandez</div><div class="step-txt" data-i18n="s3t">Commandes récurrentes automatiques via dashboard ou API</div></div>
+      <div class="step" data-a data-d="4"><div class="step-num">4</div><div class="step-lbl" data-i18n="s4l">Recevez</div><div class="step-txt" data-i18n="s4t">Livraison fraîche en 24–48h avec traçabilité complète</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec" style="background:var(--white)">
+  <div class="wrap">
+    <div class="sec-hdr" data-a>
+      <span class="badge badge-gold" data-i18n="feat_badge">Avantages Plateforme</span>
+      <h2 data-i18n="feat_h2">Pourquoi Choisir FermesDirect ?</h2>
+      <p data-i18n="feat_p">Infrastructure logistique africaine conçue pour la fraîcheur, la fiabilité et la croissance</p>
+    </div>
+    <div class="g3">
+      <div class="feat-card" data-a data-d="1"><span class="feat-ico">🚚</span><div class="feat-ttl" data-i18n="f1t">Réseau Logistique Pan-Africain</div><p class="feat-p" data-i18n="f1p">Hubs régionaux, camions réfrigérés, motos de livraison urbaine. De la ferme en 24–48h.</p></div>
+      <div class="feat-card" data-a data-d="2"><span class="feat-ico">🌱</span><div class="feat-ttl" data-i18n="f2t">Produits 100% Traçables</div><p class="feat-p" data-i18n="f2p">QR code sur chaque caisse. Traçabilité complète ferme → client en temps réel.</p></div>
+      <div class="feat-card" data-a data-d="3"><span class="feat-ico">📊</span><div class="feat-ttl" data-i18n="f3t">Dashboard BI Temps Réel</div><p class="feat-p" data-i18n="f3p">Analytics, commandes, prévisions IA. Optimisez votre budget alimentaire.</p></div>
+      <div class="feat-card" data-a data-d="1"><span class="feat-ico">💳</span><div class="feat-ttl" data-i18n="f4t">Abonnements Flexibles B2B</div><p class="feat-p" data-i18n="f4p">Plans mensuels adaptés à votre volume. Facturation centralisée, sans surprise.</p></div>
+      <div class="feat-card" data-a data-d="2"><span class="feat-ico">❄️</span><div class="feat-ttl" data-i18n="f5t">Chaîne du Froid Garantie</div><p class="feat-p" data-i18n="f5p">Stockage froid, transport réfrigéré, monitoring température en temps réel.</p></div>
+      <div class="feat-card" data-a data-d="3"><span class="feat-ico">🤝</span><div class="feat-ttl" data-i18n="f6t">Support Dédié</div><p class="feat-p" data-i18n="f6p">Gestionnaire attitré, WhatsApp 7j/7, SLA garanti selon votre plan.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div data-a data-d="1" style="text-align:center"><span class="s-num" data-cnt data-tgt="500" data-sfx="+">500+</span><span class="s-lbl" data-i18n="stat1">Fermes partenaires</span></div>
+      <div data-a data-d="2" style="text-align:center"><span class="s-num" data-cnt data-tgt="12">12</span><span class="s-lbl" data-i18n="stat2">Pays africains</span></div>
+      <div data-a data-d="3" style="text-align:center"><span class="s-num" data-cnt data-tgt="2400" data-sfx="+">2400+</span><span class="s-lbl" data-i18n="stat4">Clients B2B actifs</span></div>
+      <div data-a data-d="4" style="text-align:center"><span class="s-num" data-cnt data-tgt="98.5" data-sfx="%" data-dec="1">98.5%</span><span class="s-lbl" data-i18n="stat5">Livraisons à l'heure</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- DUAL CTA -->
+<div class="dcta">
+  <div class="dcta-p dcta-buyer" data-a="l">
+    <span class="dcta-ico">🏨</span>
+    <h3 data-i18n="dctab_h">Vous êtes Acheteur B2B ?</h3>
+    <p data-i18n="dctab_p">Restaurants, hôtels, supermarchés — accédez aux meilleures fermes africaines à partir de <strong style="color:var(--gold)">149 CAD/mois</strong>.</p>
+    <ul class="dcta-list">
+      <li data-i18n="cb1">✅ Livraison 24–48h garantie</li>
+      <li data-i18n="cb2">✅ Commandes récurrentes automatiques</li>
+      <li data-i18n="cb3">✅ Dashboard analytique inclus</li>
+      <li data-i18n="cb4">✅ Gestionnaire de compte dédié</li>
+    </ul>
+    <button class="btn btn-gold btn-lg" onclick="goPage('pricing', null, false, event)" data-i18n="dctab_btn">Voir les Plans Acheteur</button>
+  </div>
+  <div class="dcta-p dcta-farm" data-a="r">
+    <span class="dcta-ico">🌾</span>
+    <h3 data-i18n="dctaf_h">Vous êtes Fermier ?</h3>
+    <p data-i18n="dctaf_p">Rejoignez le réseau et vendez directement aux professionnels. À partir de <strong style="color:var(--gold)">49 CAD/mois</strong>.</p>
+    <ul class="dcta-list">
+      <li data-i18n="cf1">✅ Accès à 2400+ acheteurs B2B</li>
+      <li data-i18n="cf2">✅ Paiements rapides et sécurisés</li>
+      <li data-i18n="cf3">✅ Prévisions de demande IA</li>
+      <li data-i18n="cf4">✅ Support logistique intégré</li>
+    </ul>
+    <button class="btn btn-outline-w btn-lg" onclick="goPage('pricing', null, false, event)" data-i18n="dctaf_btn">Voir les Plans Fermier</button>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section style="background:var(--g9);padding:3rem 0 0">
+  <div class="wrap" style="text-align:center;margin-bottom:1.5rem">
+    <span class="badge" style="background:rgba(242,199,5,.12);color:var(--gold);margin-bottom:.6rem" data-i18n="gal_badge">Notre Réseau · Our Network</span>
+    <h2 style="color:var(--white);font-size:clamp(1.3rem,2.5vw,1.9rem)" data-i18n="gal_h2">L'Infrastructure FermesDirect</h2>
+    <p style="color:rgba(255,255,255,.55);font-size:.88rem;margin-top:.4rem" data-i18n="gal_sub">Hubs logistiques · Flotte brandée · Livreurs certifiés · Partout en Afrique</p>
+  </div>
+</section>
+<div class="gallery">
+  <div class="gal-item"><img src="/images/fd-hub-motos.jpg" alt="Hub FermesDirect" onerror="this.style.background='#1F744D'"/><div class="gal-ov"><span class="gal-lbl" data-i18n="g1">Hub Logistique Régional</span></div></div>
+  <div class="gal-item"><img src="/images/fd-van-fleet.jpg" alt="Flotte Van FermesDirect" onerror="this.style.background='#27AE60'"/><div class="gal-ov"><span class="gal-lbl" data-i18n="g2">Livraison Fresh From Farm</span></div></div>
+  <div class="gal-item"><img src="/images/fd-infra-collage.jpg" alt="Infrastructure FermesDirect" onerror="this.style.background='#124F2C'"/><div class="gal-ov"><span class="gal-lbl" data-i18n="g3">Infrastructure Complète</span></div></div>
+  <div class="gal-item"><img src="/images/fd-branding-fleet.jpg" alt="Flotte Brandée" onerror="this.style.background='#1F744D'"/><div class="gal-ov"><span class="gal-lbl" data-i18n="g4">Flotte Brandée</span></div></div>
+  <div class="gal-item"><img src="/images/fd-logistics.jpg" alt="Logistique FermesDirect" onerror="this.style.background='#0b3520'"/><div class="gal-ov"><span class="gal-lbl" data-i18n="g5">Delivered Fast · Partout en Afrique</span></div></div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec test-sec">
+  <div class="wrap">
+    <div class="sec-hdr" data-a>
+      <span class="badge" data-i18n="test_badge">Témoignages Clients</span>
+      <h2 data-i18n="test_h2">Ce Que Disent Nos Partenaires</h2>
+    </div>
+    <div class="g3">
+      <div class="test-card" data-a data-d="1"><div class="stars">★★★★★</div><p class="test-q" data-i18n="tq1">"FermesDirect a transformé notre approvisionnement. Les prix ont baissé de 23% et la qualité est incomparable."</p><div class="test-author"><div class="avatar">OM</div><div><div class="author-name">Omar Mouamba</div><div class="author-role" data-i18n="tr1">Directeur Achats · Hôtel Okoumé Palace, Libreville</div></div></div></div>
+      <div class="test-card" data-a data-d="2"><div class="stars">★★★★★</div><p class="test-q" data-i18n="tq2">"Le paiement en 7 jours avec le plan Premium a complètement changé ma trésorerie. Indispensable."</p><div class="test-author"><div class="avatar">JM</div><div><div class="author-name">Jean-Baptiste Mba</div><div class="author-role" data-i18n="tr2">Éleveur Avicole · Ferme Estuaire, Gabon</div></div></div></div>
+      <div class="test-card" data-a data-d="3"><div class="stars">★★★★★</div><p class="test-q" data-i18n="tq3">"Le dashboard analytique nous permet d'anticiper nos besoins et d'éviter le gaspillage alimentaire."</p><div class="test-author"><div class="avatar">SA</div><div><div class="author-name">Sophie Adzimah</div><div class="author-role" data-i18n="tr3">Chef Exécutive · Restaurant Le Savanna, Abidjan</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="sec" style="background:linear-gradient(135deg,var(--g7),var(--g9));text-align:center;color:var(--white)">
+  <div class="wrap">
+    <div data-a style="max-width:560px;margin:0 auto">
+      <span class="badge badge-gold" style="margin-bottom:1.15rem" data-i18n="fin_badge">Commencer Maintenant</span>
+      <h2 style="color:var(--white);margin-bottom:.85rem" data-i18n="fin_h2">Prêt à Rejoindre Africa's Farm Network ?</h2>
+      <p style="color:rgba(255,255,255,.74);margin-bottom:2.25rem" data-i18n="fin_p">Rejoignez 2400+ entreprises africaines qui se fournissent directement auprès des meilleures fermes.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-gold btn-lg" onclick="goPage('register-buyer', null, false, event)" data-i18n="btn_buyer">Je suis Acheteur</button>
+        <button class="btn btn-outline-w btn-lg" onclick="goPage('register-farmer', null, false, event)" data-i18n="btn_farmer">Je suis Fermier</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-top">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-logo">
+          <img src="/images/logo-clean.png" alt="FermesDirect Logo" style="height:38px;width:38px;object-fit:contain;flex-shrink:0;border-radius:4px;"/>
+          <span class="foot-logo-name">Fermes<span class="direct">Direct</span></span>
+        </div>
+        <p class="foot-tag" data-i18n="foot_tag">Africa's Farm Supply Network. De la ferme africaine directement à votre table. Fresh From Farm. Delivered Fast.</p>
+        <div class="foot-socials">
+          <a href="#" class="foot-soc" aria-label="LinkedIn">in</a>
+          <a href="#" class="foot-soc" aria-label="Twitter">𝕏</a>
+          <a href="#" class="foot-soc" aria-label="Facebook">f</a>
+          <a href="#" class="foot-soc" aria-label="WhatsApp">W</a>
+        </div>
+      </div>
+      <div><div class="foot-col-t" data-i18n="fc1">Plateforme</div><ul class="foot-links"><li><span class="foot-link" onclick="goPage('how', null, false, event)" data-i18n="nav_how">Comment ça marche</span></li><li><span class="foot-link" onclick="goPage('pricing', null, false, event)" data-i18n="fc_pb">Tarifs Acheteurs</span></li><li><span class="foot-link" onclick="goPage('pricing', null, false, event)" data-i18n="fc_pf">Tarifs Fournisseurs</span></li><li><span class="foot-link" onclick="goPage('dashboard', null, false, event)" data-i18n="nav_dash">Dashboard</span></li></ul></div>
+      <div><div class="foot-col-t" data-i18n="fc2">Entreprise</div><ul class="foot-links"><li><span class="foot-link" onclick="goPage('about', null, false, event)" data-i18n="nav_about">À Propos</span></li><li><span class="foot-link" onclick="goPage('contact', null, false, event)" data-i18n="nav_contact">Contact</span></li><li><span class="foot-link" data-i18n="fc_blog">Blog</span></li><li><span class="foot-link" data-i18n="fc_jobs">Carrières</span></li></ul></div>
+      <div><div class="foot-col-t" data-i18n="fc3">Légal</div><ul class="foot-links"><li><span class="foot-link" data-i18n="fc_cgu">CGU</span></li><li><span class="foot-link" data-i18n="fc_priv">Confidentialité</span></li><li><span class="foot-link" data-i18n="fc_cook">Cookies</span></li><li><span class="foot-link" data-i18n="fc_sec">Sécurité</span></li></ul></div>
+    </div>
+  </div>
+  <hr class="foot-hr"/>
+  <div class="wrap">
+    <div class="foot-bot">
+      <span data-i18n="foot_copy">© 2026 FermesDirect. Tous droits réservés.</span>
+      <div class="foot-badges"><span class="fbadge">🔒 SSL Secured</span><span class="fbadge">✅ B2B Certified</span></div>
+    </div>
+  </div>
+</footer>
+</main>
+
+<!-- ═══════════════ PRICING ═══════════════ -->
+<main class="page" id="page-pricing">
+<div class="page-hero">
+  <div class="wrap"><span class="badge badge-gold" data-i18n="pr_badge">Plans & Tarifs</span><h1 data-i18n="pr_h1">Des Plans Pour Chaque Ambition</h1><p data-i18n="pr_p">14 jours d'essai gratuit sur tous les plans acheteurs. Annulation facile.</p></div>
+</div>
+<section class="sec" style="background:var(--white)">
+  <div class="wrap">
+    <div style="text-align:center">
+      <div class="ptog">
+        <button class="ptog-btn act" onclick="togglePr('b',this)" data-i18n="ptb">🏨 Acheteurs B2B</button>
+        <button class="ptog-btn"     onclick="togglePr('f',this)" data-i18n="ptf">🌾 Fermiers Fournisseurs</button>
+      </div>
+    </div>
+    <!-- BUYER PLANS -->
+    <div id="pr-b">
+      <div class="sec-hdr" data-a><span class="badge" data-i18n="pb_badge">Abonnements Acheteurs</span><h2 data-i18n="pb_h2">Votre Plan, Votre Volume</h2><p data-i18n="pb_p">Tous plans incluent : dashboard, traçabilité QR, facturation centralisée, support FR/EN</p></div>
+      <div class="pgrid">
+        <div class="pc" data-a data-d="1">
+          <div class="pc-tier" data-i18n="tier_start">Démarrage</div><div class="pc-name" data-i18n="plan_ess">Essentiel</div>
+          <div class="pc-price"><span class="pc-cur">CAD</span><span class="pc-amt">149</span><span class="pc-per" data-i18n="per_mo">/mois</span></div>
+          <div class="pc-hr"></div>
+          <ul class="pc-feats">
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="be1">Jusqu'à 500 kg/mois</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="be2">5 catégories produits</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="be3">Livraison garantie 48h</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="be4">Dashboard basique</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="be5">Support email</span></li>
+            <li class="pc-feat"><span class="pc-dash">–</span><span style="color:var(--gray3)" data-i18n="bx_ded">Gestionnaire dédié</span></li>
+          </ul>
+          <button class="btn btn-outline-g" onclick="goPage('register-buyer',{plan:'essentiel'})" data-i18n="btn_149">Commencer – 149 CAD/mois</button>
+        </div>
+        <div class="pc pop" data-a data-d="2">
+          <div class="pop-badge" data-i18n="pop_lbl">⭐ Plus Populaire</div>
+          <div class="pc-tier" data-i18n="tier_growth">Croissance</div><div class="pc-name" data-i18n="plan_pro">Professionnel</div>
+          <div class="pc-price"><span class="pc-cur">CAD</span><span class="pc-amt">399</span><span class="pc-per" data-i18n="per_mo">/mois</span></div>
+          <div class="pc-hr"></div>
+          <ul class="pc-feats">
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bp1">Jusqu'à 2 000 kg/mois</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bp2">Toutes catégories</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bp3">Livraison garantie 24h</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bp4">Analytics avancés</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bp5">Gestionnaire de compte dédié</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bp6">Commandes récurrentes auto</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bp7">Support WhatsApp prioritaire</span></li>
+          </ul>
+          <button class="btn btn-primary" onclick="goPage('register-buyer',{plan:'professionnel'})" data-i18n="btn_399">Commencer – 399 CAD/mois</button>
+        </div>
+        <div class="pc" data-a data-d="3">
+          <div class="pc-tier">Enterprise</div><div class="pc-name" data-i18n="plan_ent">Entreprise</div>
+          <div class="pc-price"><span class="pc-cur">CAD</span><span class="pc-amt">999</span><span class="pc-per" data-i18n="per_mo">/mois</span></div>
+          <div class="pc-hr"></div>
+          <ul class="pc-feats">
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bx1">Volume illimité</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bx2">Livraison same-day option</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bx3">API complète + webhooks</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bx4">SLA 99.9% garanti</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bx5">Intégration ERP/SAP</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bx6">Support 24/7 dédié</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="bx7">Branding caisses perso</span></li>
+          </ul>
+          <button class="btn btn-gold" onclick="goPage('register-buyer',{plan:'entreprise'})" data-i18n="btn_999">Commencer – 999 CAD/mois</button>
+        </div>
+      </div>
+    </div>
+    <!-- FARMER PLANS -->
+    <div id="pr-f" style="display:none">
+      <div class="sec-hdr" data-a><span class="badge" data-i18n="pf_badge">Abonnements Fournisseurs</span><h2 data-i18n="pf_h2">Votre Plan Fermier</h2><p data-i18n="pf_p">Tous plans incluent : profil ferme public, accès marketplace, paiements sécurisés, support</p></div>
+      <div class="pgrid">
+        <div class="pc" data-a data-d="1">
+          <div class="pc-tier" data-i18n="tier_start">Démarrage</div><div class="pc-name" data-i18n="plan_part">Partenaire</div>
+          <div class="pc-price"><span class="pc-cur">CAD</span><span class="pc-amt">49</span><span class="pc-per" data-i18n="per_mo">/mois</span></div>
+          <div class="pc-hr"></div>
+          <ul class="pc-feats">
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="ff1">3 catégories produits</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="ff2">Profil ferme basique</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="ff3">Paiement sous 30 jours</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="ff4">Accès marketplace</span></li>
+            <li class="pc-feat"><span class="pc-dash">–</span><span style="color:var(--gray3)" data-i18n="ff_feat">Listing featured</span></li>
+          </ul>
+          <button class="btn btn-outline-g" onclick="goPage('register-farmer',{plan:'partenaire'})" data-i18n="btn_49">Rejoindre – 49 CAD/mois</button>
+        </div>
+        <div class="pc pop" data-a data-d="2">
+          <div class="pop-badge" data-i18n="rec_lbl">⭐ Recommandé</div>
+          <div class="pc-tier" data-i18n="tier_growth">Croissance</div><div class="pc-name" data-i18n="plan_prof">Pro Ferme</div>
+          <div class="pc-price"><span class="pc-cur">CAD</span><span class="pc-amt">99</span><span class="pc-per" data-i18n="per_mo">/mois</span></div>
+          <div class="pc-hr"></div>
+          <ul class="pc-feats">
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fp1">10 catégories produits</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fp2">Profil ferme featured</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fp3">Paiement sous 15 jours</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fp4">Analytics de demande</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fp5">Matching prioritaire acheteurs</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fp6">Support WhatsApp</span></li>
+          </ul>
+          <button class="btn btn-primary" onclick="goPage('register-farmer',{plan:'pro-ferme'})" data-i18n="btn_99">Rejoindre – 99 CAD/mois</button>
+        </div>
+        <div class="pc" data-a data-d="3">
+          <div class="pc-tier">Premium</div><div class="pc-name" data-i18n="plan_prem">Premium Ferme</div>
+          <div class="pc-price"><span class="pc-cur">CAD</span><span class="pc-amt">199</span><span class="pc-per" data-i18n="per_mo">/mois</span></div>
+          <div class="pc-hr"></div>
+          <ul class="pc-feats">
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fx1">Catégories illimitées</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fx2">Top priorité listing</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fx3">Paiement sous 7 jours</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fx4">Prévisions demande IA</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fx5">Formation équipe incluse</span></li>
+            <li class="pc-feat"><span class="pc-chk">✓</span><span data-i18n="fx6">Support 24/7 dédié</span></li>
+          </ul>
+          <button class="btn btn-gold" onclick="goPage('register-farmer',{plan:'premium-ferme'})" data-i18n="btn_199">Rejoindre – 199 CAD/mois</button>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem" data-a>
+      <p style="color:var(--gray5);margin-bottom:1.25rem" data-i18n="pr_cta_p">Besoin d'un plan sur mesure pour votre organisation ?</p>
+      <button class="btn btn-primary btn-lg" onclick="goPage('contact', null, false, event)" data-i18n="pr_cta_btn">Contactez notre équipe commerciale</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════ REGISTER BUYER ═══════════════ -->
+<main class="page" id="page-register-buyer">
+<div class="form-sec">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:1.4rem"><button class="btn btn-outline-g btn-sm" onclick="goPage('pricing', null, false, event)" data-i18n="back_plans">← Voir les plans</button></div>
+    <div class="form-card">
+      <div class="form-hdr"><span class="ico">🏨</span><h1 data-i18n="rb_h1">Inscription Acheteur B2B</h1><p data-i18n="rb_sub">14 jours d'essai gratuit — aucune carte requise</p></div>
+      <form id="frm-buyer" novalidate>
+        <div class="f-row">
+          <div class="f-grp"><label data-i18n="lbl_name">Votre Nom *</label><input type="text" name="name" class="f-ctrl" required autocomplete="name"/><div class="f-err" data-for="name"></div></div>
+          <div class="f-grp"><label data-i18n="lbl_co">Entreprise *</label><input type="text" name="company" class="f-ctrl" required/><div class="f-err" data-for="company"></div></div>
+        </div>
+        <div class="f-row">
+          <div class="f-grp"><label data-i18n="lbl_email">Email *</label><input type="email" name="email" class="f-ctrl" required autocomplete="email"/><div class="f-err" data-for="email"></div></div>
+          <div class="f-grp"><label data-i18n="lbl_phone">Téléphone *</label><input type="tel" name="phone" class="f-ctrl" required autocomplete="tel"/><div class="f-err" data-for="phone"></div></div>
+        </div>
+        <div class="f-row">
+          <div class="f-grp"><label data-i18n="lbl_country">Pays *</label>
+            <select name="country" class="f-ctrl" required><option value="" data-i18n="sel_c">Sélectionnez</option>
+              <option>Gabon</option><option>Côte d'Ivoire</option><option>Sénégal</option><option>Cameroun</option><option>Congo</option><option>Nigeria</option><option>Ghana</option><option value="Autre" data-i18n="opt_other">Autre</option>
+            </select><div class="f-err" data-for="country"></div>
+          </div>
+          <div class="f-grp"><label data-i18n="lbl_btype">Type d'activité *</label>
+            <select name="businessType" class="f-ctrl" required><option value="" data-i18n="sel_c">Sélectionnez</option>
+              <option value="restaurant" data-i18n="bt_rest">Restaurant</option><option value="hotel" data-i18n="bt_hotel">Hôtel / Lodge</option>
+              <option value="supermarche" data-i18n="bt_super">Supermarché</option><option value="distributeur" data-i18n="bt_dist">Distributeur</option><option value="autre" data-i18n="opt_other">Autre</option>
+            </select><div class="f-err" data-for="businessType"></div>
+          </div>
+        </div>
+        <div class="f-grp"><label data-i18n="lbl_plan">Choisissez votre Plan *</label>
+          <div class="plan-sel">
+            <div class="plan-opt" onclick="selPlan(this,'essentiel','frm-buyer')"><span class="plan-p">149 CAD</span><span class="plan-n" data-i18n="plan_ess">Essentiel</span><span class="plan-v" data-i18n="pv_500">/mois · 500 kg</span></div>
+            <div class="plan-opt sel" onclick="selPlan(this,'professionnel','frm-buyer')"><span class="plan-p">399 CAD</span><span class="plan-n">⭐ <span data-i18n="plan_pro">Pro</span></span><span class="plan-v" data-i18n="pv_2k">/mois · 2 000 kg</span></div>
+            <div class="plan-opt" onclick="selPlan(this,'entreprise','frm-buyer')"><span class="plan-p">999 CAD</span><span class="plan-n" data-i18n="plan_ent">Entreprise</span><span class="plan-v" data-i18n="pv_unl">/mois · Illimité</span></div>
+          </div>
+          <input type="hidden" name="plan" id="buyer-plan" value="professionnel"/>
+        </div>
+        <div class="f-grp"><label data-i18n="lbl_prods">Produits qui vous intéressent</label>
+          <div class="chk-group">
+            <label class="chk-item"><input type="checkbox" name="products" value="oeufs"/>🥚 <span data-i18n="p_eggs">Œufs</span></label>
+            <label class="chk-item"><input type="checkbox" name="products" value="volaille"/>🐓 <span data-i18n="p_pou">Volaille</span></label>
+            <label class="chk-item"><input type="checkbox" name="products" value="legumes"/>🥬 <span data-i18n="p_veg">Légumes</span></label>
+            <label class="chk-item"><input type="checkbox" name="products" value="fruits"/>🍋 <span data-i18n="p_fr">Fruits</span></label>
+            <label class="chk-item"><input type="checkbox" name="products" value="poisson"/>🐟 <span data-i18n="p_fish">Poisson</span></label>
+          </div>
+        </div>
+        <div class="f-grp"><label data-i18n="lbl_msg">Message (optionnel)</label><textarea name="message" class="f-ctrl" rows="3"></textarea></div>
+        <div class="f-grp"><label class="chk-item" style="align-items:flex-start;gap:.55rem"><input type="checkbox" name="terms" required style="margin-top:3px"/><span style="font-size:.8rem;color:var(--gray5)" data-i18n="terms">J'accepte les CGU et la Politique de Confidentialité *</span></label></div>
+        <button type="submit" class="f-submit" data-i18n="rb_btn">Démarrer mon Essai Gratuit 14 Jours →</button>
+        <p class="f-hint" data-i18n="rb_hint">✅ Essai gratuit · Aucune carte · Annulation facile</p>
+      </form>
+      <div class="f-success" id="suc-buyer"><span class="ico">🎉</span><div class="f-success-msg" data-i18n="suc_msg">Inscription reçue ! Notre équipe vous contacte sous 24h.</div><button class="btn btn-primary" style="margin-top:1.2rem" onclick="goPage('home', null, false, event)" data-i18n="back_home">Retour à l'accueil</button></div>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- ═══════════════ REGISTER FARMER ═══════════════ -->
+<main class="page" id="page-register-farmer">
+<div class="form-sec" style="background:linear-gradient(180deg,var(--g1),var(--g0))">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:1.4rem"><button class="btn btn-outline-g btn-sm" onclick="goPage('pricing', null, false, event)" data-i18n="back_plans">← Voir les plans</button></div>
+    <div class="form-card">
+      <div class="form-hdr"><span class="ico">🌾</span><h1 data-i18n="rf_h1">Inscription Fournisseur</h1><p data-i18n="rf_sub">Rejoignez 500+ fermes partenaires du réseau FermesDirect</p></div>
+      <form id="frm-farmer" novalidate>
+        <div class="f-row">
+          <div class="f-grp"><label data-i18n="lbl_name">Votre Nom *</label><input type="text" name="name" class="f-ctrl" required autocomplete="name"/><div class="f-err" data-for="name"></div></div>
+          <div class="f-grp"><label data-i18n="lbl_farm">Nom de la Ferme *</label><input type="text" name="farmName" class="f-ctrl" required/><div class="f-err" data-for="farmName"></div></div>
+        </div>
+        <div class="f-row">
+          <div class="f-grp"><label data-i18n="lbl_email">Email *</label><input type="email" name="email" class="f-ctrl" required autocomplete="email"/><div class="f-err" data-for="email"></div></div>
+          <div class="f-grp"><label data-i18n="lbl_phone">Téléphone *</label><input type="tel" name="phone" class="f-ctrl" required autocomplete="tel"/><div class="f-err" data-for="phone"></div></div>
+        </div>
+        <div class="f-row">
+          <div class="f-grp"><label data-i18n="lbl_country">Pays *</label>
+            <select name="country" class="f-ctrl" required><option value="" data-i18n="sel_c">Sélectionnez</option>
+              <option>Gabon</option><option>Côte d'Ivoire</option><option>Sénégal</option><option>Cameroun</option><option>Congo</option><option>Nigeria</option><option>Ghana</option><option value="Autre" data-i18n="opt_other">Autre</option>
+            </select><div class="f-err" data-for="country"></div>
+          </div>
+          <div class="f-grp"><label data-i18n="lbl_fsize">Taille exploitation *</label>
+            <select name="farmSize" class="f-ctrl" required><option value="" data-i18n="sel_c">Sélectionnez</option>
+              <option value="small" data-i18n="fs_s">Petite (&lt; 2 ha)</option><option value="medium" data-i18n="fs_m">Moyenne (2–20 ha)</option><option value="large" data-i18n="fs_l">Grande (&gt; 20 ha)</option>
+            </select><div class="f-err" data-for="farmSize"></div>
+          </div>
+        </div>
+        <div class="f-grp"><label data-i18n="lbl_ptypes">Vos Produits *</label>
+          <div class="chk-group">
+            <label class="chk-item"><input type="checkbox" name="productTypes" value="oeufs"/>🥚 <span data-i18n="p_eggs">Œufs</span></label>
+            <label class="chk-item"><input type="checkbox" name="productTypes" value="volaille"/>🐓 <span data-i18n="p_pou">Volaille</span></label>
+            <label class="chk-item"><input type="checkbox" name="productTypes" value="legumes"/>🥬 <span data-i18n="p_veg">Légumes</span></label>
+            <label class="chk-item"><input type="checkbox" name="productTypes" value="fruits"/>🍋 <span data-i18n="p_fr">Fruits</span></label>
+            <label class="chk-item"><input type="checkbox" name="productTypes" value="poisson"/>🐟 <span data-i18n="p_fish">Poisson</span></label>
+            <label class="chk-item"><input type="checkbox" name="productTypes" value="cereales"/>🌾 <span data-i18n="p_grain">Céréales</span></label>
+          </div>
+        </div>
+        <div class="f-grp"><label data-i18n="lbl_fplan">Choisissez votre Plan *</label>
+          <div class="plan-sel">
+            <div class="plan-opt" onclick="selPlan(this,'partenaire','frm-farmer')"><span class="plan-p">49 CAD</span><span class="plan-n" data-i18n="plan_part">Partenaire</span><span class="plan-v" data-i18n="per_mo">/mois</span></div>
+            <div class="plan-opt sel" onclick="selPlan(this,'pro-ferme','frm-farmer')"><span class="plan-p">99 CAD</span><span class="plan-n">⭐ <span data-i18n="plan_prof">Pro Ferme</span></span><span class="plan-v" data-i18n="per_mo">/mois</span></div>
+            <div class="plan-opt" onclick="selPlan(this,'premium-ferme','frm-farmer')"><span class="plan-p">199 CAD</span><span class="plan-n" data-i18n="plan_prem">Premium</span><span class="plan-v" data-i18n="per_mo">/mois</span></div>
+          </div>
+          <input type="hidden" name="plan" id="farmer-plan" value="pro-ferme"/>
+        </div>
+        <div class="f-grp"><label data-i18n="lbl_cap">Capacité de production estimée</label><input type="text" name="capacity" class="f-ctrl" placeholder="Ex: 5000 œufs/semaine"/></div>
+        <div class="f-grp"><label data-i18n="lbl_fdesc">Description de votre ferme</label><textarea name="message" class="f-ctrl" rows="3"></textarea></div>
+        <div class="f-grp"><label class="chk-item" style="align-items:flex-start;gap:.55rem"><input type="checkbox" name="terms" required style="margin-top:3px"/><span style="font-size:.8rem;color:var(--gray5)" data-i18n="terms">J'accepte les CGU et la Politique de Confidentialité *</span></label></div>
+        <button type="submit" class="f-submit" style="background:var(--brown2)" data-i18n="rf_btn">Rejoindre le Réseau FermesDirect →</button>
+        <p class="f-hint" data-i18n="rf_hint">✅ Premier mois offert · Paiement rapide garanti</p>
+      </form>
+      <div class="f-success" id="suc-farmer"><span class="ico">🌾</span><div class="f-success-msg" data-i18n="suc_farm">Bienvenue dans le réseau ! Notre équipe vous contacte sous 24h.</div><button class="btn btn-primary" style="margin-top:1.2rem" onclick="goPage('home', null, false, event)" data-i18n="back_home">Retour à l'accueil</button></div>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<main class="page" id="page-about">
+<div class="page-hero"><div class="wrap"><span class="badge badge-gold" data-i18n="ab_badge">Notre Histoire</span><h1 data-i18n="ab_h1">Réinventer la Chaîne Alimentaire Africaine</h1><p data-i18n="ab_p">FermesDirect est né d'une conviction : les meilleures fermes africaines méritent d'accéder directement aux meilleurs acheteurs.</p></div></div>
+<section class="sec" style="background:var(--white)">
+  <div class="wrap">
+    <div class="about-grid">
+      <div data-a="l">
+        <span class="badge" style="margin-bottom:1.2rem" data-i18n="mission_badge">Notre Mission</span>
+        <h2 data-i18n="mission_h2">Éliminer les Intermédiaires. Créer de la Valeur.</h2>
+        <p style="margin:1.2rem 0 1rem;font-size:.98rem" data-i18n="mission_p1">En Afrique, les producteurs agricoles reçoivent souvent moins de 20% de la valeur finale de leurs produits à cause de chaînes d'approvisionnement longues et inefficaces.</p>
+        <p style="margin-bottom:1.75rem;font-size:.98rem" data-i18n="mission_p2">FermesDirect change ça. <strong>Les fermiers gagnent plus</strong>, les acheteurs <strong>paient moins</strong>, et les consommateurs reçoivent des produits <strong>plus frais et traçables</strong>.</p>
+        <div class="about-nums">
+          <div><div class="a-num">2022</div><div class="a-lbl" data-i18n="ab_founded">Fondation</div></div>
+          <div><div class="a-num">12</div><div class="a-lbl" data-i18n="stat2">Pays africains</div></div>
+          <div><div class="a-num">500+</div><div class="a-lbl" data-i18n="stat1">Fermes partenaires</div></div>
+        </div>
+      </div>
+      <div data-a="r">
+        <div class="about-img"><img src="/images/fd-logistics.jpg" alt="FermesDirect Hub" onerror="this.style.cssText='height:380px;background:linear-gradient(135deg,#1F744D,#0b3520)'"/></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec" style="background:var(--g0)">
+  <div class="wrap">
+    <div class="sec-hdr" data-a><span class="badge" data-i18n="val_badge">Nos Valeurs</span><h2 data-i18n="val_h2">Ce en Quoi Nous Croyons</h2></div>
+    <div class="val-grid">
+      <div class="val-card" data-a data-d="1"><div class="val-ico">🌱</div><div class="val-t" data-i18n="v1t">Durabilité</div><p class="val-p" data-i18n="v1p">Pratiques agricoles durables et fermes certifiées non-OGM. L'avenir alimentaire de l'Afrique doit être vert.</p></div>
+      <div class="val-card" data-a data-d="2"><div class="val-ico">🤝</div><div class="val-t" data-i18n="v2t">Équité</div><p class="val-p" data-i18n="v2p">Paiements justes et rapides pour les fermiers. Transparence totale des prix. Pas de marges cachées.</p></div>
+      <div class="val-card" data-a data-d="3"><div class="val-ico">⚡</div><div class="val-t" data-i18n="v3t">Excellence Opérationnelle</div><p class="val-p" data-i18n="v3p">Infrastructure logistique de classe mondiale. SLA rigoureux. Qualité et fiabilité garanties.</p></div>
+      <div class="val-card" data-a data-d="4"><div class="val-ico">🌍</div><div class="val-t" data-i18n="v4t">Impact Africain</div><p class="val-p" data-i18n="v4p">Chaque commande renforce l'économie agricole locale et crée des emplois durables en Afrique.</p></div>
+    </div>
+  </div>
+</section>
+<!-- Infrastructure visual -->
+<section class="sec" style="background:var(--g9);color:var(--white)">
+  <div class="wrap">
+    <div class="sec-hdr" data-a style="color:var(--white)"><span class="badge badge-gold" data-i18n="infra_badge">Infrastructure</span><h2 style="color:var(--white)" data-i18n="infra_h2">L'Écosystème FermesDirect</h2><p style="color:rgba(255,255,255,.65)" data-i18n="infra_p">5 piliers physiques pour dominer la logistique agricole africaine</p></div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;text-align:center">
+      <div data-a data-d="1" style="padding:1.5rem 1rem"><div style="font-size:2.5rem;margin-bottom:.75rem">🏭</div><div style="font-weight:700;font-size:.82rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-i18n="inf1t">Hub Régional</div><p style="font-size:.75rem;color:rgba(255,255,255,.6);margin-top:.4rem" data-i18n="inf1p">5 000–15 000 m² · Réception, tri, stockage, dispatch</p></div>
+      <div data-a data-d="2" style="padding:1.5rem 1rem"><div style="font-size:2.5rem;margin-bottom:.75rem">🏙️</div><div style="font-weight:700;font-size:.82rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-i18n="inf2t">Station Urbaine</div><p style="font-size:.75rem;color:rgba(255,255,255,.6);margin-top:.4rem" data-i18n="inf2p">200–400 m² · Dark hub · Dispatch motos</p></div>
+      <div data-a data-d="3" style="padding:1.5rem 1rem"><div style="font-size:2.5rem;margin-bottom:.75rem">🚛</div><div style="font-weight:700;font-size:.82rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-i18n="inf3t">Camions</div><p style="font-size:.75rem;color:rgba(255,255,255,.6);margin-top:.4rem" data-i18n="inf3p">3.5T · 7.5T · 12T · Transport inter-ville</p></div>
+      <div data-a data-d="4" style="padding:1.5rem 1rem"><div style="font-size:2.5rem;margin-bottom:.75rem">🏍️</div><div style="font-weight:700;font-size:.82rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-i18n="inf4t">Motos / Vans</div><p style="font-size:.75rem;color:rgba(255,255,255,.6);margin-top:.4rem" data-i18n="inf4p">Livraison urbaine last-mile · Traçabilité QR</p></div>
+      <div data-a data-d="5" style="padding:1.5rem 1rem"><div style="font-size:2.5rem;margin-bottom:.75rem">📦</div><div style="font-weight:700;font-size:.82rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-i18n="inf5t">Caisses RFID</div><p style="font-size:.75rem;color:rgba(255,255,255,.6);margin-top:.4rem" data-i18n="inf5p">Empilables, lavables, RFID possible</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════ HOW ═══════════════ -->
+<main class="page" id="page-how">
+<div class="page-hero"><div class="wrap"><span class="badge badge-gold" data-i18n="how_page_badge">Processus</span><h1 data-i18n="how_page_h1">Comment Fonctionne FermesDirect ?</h1><p data-i18n="how_page_p">Plateforme simple, transparente et efficace pour connecter fermes et acheteurs.</p></div></div>
+<section class="sec" style="background:var(--white)">
+  <div class="wrap">
+    <div class="g2">
+      <div data-a="l">
+        <span class="badge" style="margin-bottom:1rem" data-i18n="for_buyers">Pour les Acheteurs</span>
+        <h3 style="margin-bottom:1.2rem" data-i18n="buyer_steps_h">Approvisionnez-vous en 4 étapes</h3>
+        <div style="display:flex;flex-direction:column;gap:1.15rem">
+          <div style="display:flex;gap:.9rem;align-items:flex-start"><div style="width:42px;height:42px;border-radius:50%;background:var(--g7);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:900;font-size:1rem;flex-shrink:0">1</div><div><strong data-i18n="bs1t">Créez votre compte</strong><p style="font-size:.86rem;color:var(--gray5);margin-top:.2rem" data-i18n="bs1p">Choisissez votre plan et complétez votre profil en 5 minutes.</p></div></div>
+          <div style="display:flex;gap:.9rem;align-items:flex-start"><div style="width:42px;height:42px;border-radius:50%;background:var(--g7);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:900;font-size:1rem;flex-shrink:0">2</div><div><strong data-i18n="bs2t">Explorez le catalogue</strong><p style="font-size:.86rem;color:var(--gray5);margin-top:.2rem" data-i18n="bs2p">500+ fermes certifiées filtrées par produit, région et prix.</p></div></div>
+          <div style="display:flex;gap:.9rem;align-items:flex-start"><div style="width:42px;height:42px;border-radius:50%;background:var(--gold);color:var(--gray9);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:900;font-size:1rem;flex-shrink:0">3</div><div><strong data-i18n="bs3t">Passez vos commandes</strong><p style="font-size:.86rem;color:var(--gray5);margin-top:.2rem" data-i18n="bs3p">Commandes uniques ou récurrentes. Notre IA optimise vos approvisionnements.</p></div></div>
+          <div style="display:flex;gap:.9rem;align-items:flex-start"><div style="width:42px;height:42px;border-radius:50%;background:var(--gold);color:var(--gray9);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:900;font-size:1rem;flex-shrink:0">4</div><div><strong data-i18n="bs4t">Recevez & Tracez</strong><p style="font-size:.86rem;color:var(--gray5);margin-top:.2rem" data-i18n="bs4p">Livraison en 24–48h. QR code par caisse. Dashboard temps réel inclus.</p></div></div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:1.75rem" onclick="goPage('register-buyer', null, false, event)" data-i18n="hero_cta1">Démarrer comme Acheteur →</button>
+      </div>
+      <div data-a="r"><img src="/images/fd-van-fleet.jpg" alt="FermesDirect fleet" style="border-radius:var(--r24);box-shadow:var(--sh3);width:100%;height:360px;object-fit:cover" onerror="this.style.cssText='height:360px;border-radius:24px;background:linear-gradient(135deg,#1F744D,#0b3520)'"/></div>
+    </div>
+  </div>
+</section>
+<section class="sec" style="background:var(--g1)">
+  <div class="wrap">
+    <div class="g2">
+      <div data-a="l"><img src="/images/fd-van-fleet.jpg" alt="Delivery FermesDirect" style="border-radius:var(--r24);box-shadow:var(--sh3);width:100%;height:360px;object-fit:cover" onerror="this.style.cssText='height:360px;border-radius:24px;background:linear-gradient(135deg,#27AE60,#1F744D)'"/></div>
+      <div data-a="r">
+        <span class="badge badge-gold" style="margin-bottom:1rem" data-i18n="for_farmers">Pour les Fermiers</span>
+        <h3 style="margin-bottom:1.2rem" data-i18n="farmer_steps_h">Vendez Directement en 4 Étapes</h3>
+        <div style="display:flex;flex-direction:column;gap:1.15rem">
+          <div style="display:flex;gap:.9rem;align-items:flex-start"><div style="width:42px;height:42px;border-radius:50%;background:var(--brown2);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:900;font-size:1rem;flex-shrink:0">1</div><div><strong data-i18n="fs1t">Inscrivez votre ferme</strong><p style="font-size:.86rem;color:var(--gray5);margin-top:.2rem" data-i18n="fs1p">Créez votre profil, listez vos produits avec photos et capacités.</p></div></div>
+          <div style="display:flex;gap:.9rem;align-items:flex-start"><div style="width:42px;height:42px;border-radius:50%;background:var(--brown2);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:900;font-size:1rem;flex-shrink:0">2</div><div><strong data-i18n="fs2t">Recevez des commandes</strong><p style="font-size:.86rem;color:var(--gray5);margin-top:.2rem" data-i18n="fs2p">Notre algorithme vous met en relation avec les acheteurs correspondants.</p></div></div>
+          <div style="display:flex;gap:.9rem;align-items:flex-start"><div style="width:42px;height:42px;border-radius:50%;background:var(--g7);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:900;font-size:1rem;flex-shrink:0">3</div><div><strong data-i18n="fs3t">Préparez & Remettez</strong><p style="font-size:.86rem;color:var(--gray5);margin-top:.2rem" data-i18n="fs3p">Notre équipe collecte directement à la ferme. Zéro souci de transport.</p></div></div>
+          <div style="display:flex;gap:.9rem;align-items:flex-start"><div style="width:42px;height:42px;border-radius:50%;background:var(--g7);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:900;font-size:1rem;flex-shrink:0">4</div><div><strong data-i18n="fs4t">Recevez votre paiement</strong><p style="font-size:.86rem;color:var(--gray5);margin-top:.2rem" data-i18n="fs4p">7–30 jours selon le plan. Mobile Money ou virement bancaire.</p></div></div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:1.75rem;background:var(--brown2)" onclick="goPage('register-farmer', null, false, event)" data-i18n="btn_farmer">Rejoindre comme Fermier →</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<main class="page" id="page-contact">
+<div class="page-hero"><div class="wrap"><span class="badge badge-gold" data-i18n="ct_badge">Contact</span><h1 data-i18n="ct_h1">Parlons de Votre Projet</h1><p data-i18n="ct_p">Notre équipe répond en moins de 24 heures, en français ou en anglais.</p></div></div>
+<section class="sec" style="background:var(--gray1)">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div data-a="l">
+        <h2 style="font-size:1.45rem;margin-bottom:.7rem" data-i18n="ci_title">Nos Coordonnées</h2>
+        <p style="color:var(--gray5);margin-bottom:1.65rem;font-size:.88rem" data-i18n="ci_desc">Présents dans 12 pays africains et au Canada. Bilingues FR/EN.</p>
+        <div class="ci-item"><div class="ci-ico">📍</div><div><div class="ci-lbl" data-i18n="c_hq">Siège Social</div><div class="ci-val">Toronto, Ontario, Canada</div></div></div>
+        <div class="ci-item"><div class="ci-ico">🌍</div><div><div class="ci-lbl" data-i18n="c_af">Bureau Afrique</div><div class="ci-val">Libreville, Gabon</div></div></div>
+        <div class="ci-item"><div class="ci-ico">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val">info@fermesdirect.com</div></div></div>
+        <div class="ci-item"><div class="ci-ico">📱</div><div><div class="ci-lbl" data-i18n="c_wa">WhatsApp B2B</div><div class="ci-val">+1 (416) 000-0000</div></div></div>
+        <div class="ci-item"><div class="ci-ico">⏰</div><div><div class="ci-lbl" data-i18n="c_hrs">Heures Support</div><div class="ci-val" data-i18n="c_hrs_v">Lun–Ven 8h–20h (WAT/EST)</div></div></div>
+        <div style="background:var(--g1);border-radius:var(--r12);padding:1.4rem;border-left:4px solid var(--g7);margin-top:1.75rem">
+          <div style="font-weight:700;color:var(--g7);font-size:.88rem;margin-bottom:.38rem" data-i18n="c_part_t">🤝 Partenariat Stratégique</div>
+          <p style="font-size:.82rem;color:var(--gray5)" data-i18n="c_part_p">Investisseurs, distributeurs régionaux, partenaires logistiques — contactez directement notre équipe exécutive.</p>
+        </div>
+      </div>
+      <div data-a="r">
+        <div class="form-card" style="margin:0">
+          <h3 style="font-family:var(--font-h);margin-bottom:1.4rem" data-i18n="cf_title">Envoyez-nous un Message</h3>
+          <form id="frm-contact" novalidate>
+            <div class="f-row">
+              <div class="f-grp"><label data-i18n="lbl_name">Votre Nom *</label><input type="text" name="name" class="f-ctrl" required/></div>
+              <div class="f-grp"><label data-i18n="lbl_email">Email *</label><input type="email" name="email" class="f-ctrl" required/></div>
+            </div>
+            <div class="f-row">
+              <div class="f-grp"><label data-i18n="c_you_are">Vous êtes</label>
+                <select name="type" class="f-ctrl">
+                  <option value="buyer" data-i18n="c_type_b">Acheteur B2B</option><option value="farmer" data-i18n="c_type_f">Fermier</option>
+                  <option value="partner" data-i18n="c_type_p">Partenaire</option><option value="press" data-i18n="c_type_pr">Presse</option><option value="other" data-i18n="opt_other">Autre</option>
+                </select>
+              </div>
+              <div class="f-grp"><label data-i18n="c_subj">Sujet *</label><input type="text" name="subject" class="f-ctrl" required/></div>
+            </div>
+            <div class="f-grp"><label data-i18n="lbl_msg">Message *</label><textarea name="message" class="f-ctrl" rows="5" required></textarea></div>
+            <button type="submit" class="f-submit" data-i18n="c_send">Envoyer le Message →</button>
+          </form>
+          <div class="f-success" id="suc-contact"><span class="ico">✅</span><div class="f-success-msg" data-i18n="suc_ct">Message envoyé ! Nous vous répondrons sous 24 heures.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════ DASHBOARD ═══════════════ -->
+<main class="page" id="page-dashboard">
+<div class="dash">
+  <aside class="dash-sb">
+    <div class="dash-sb-hdr">
+      <div class="dash-uname">Jean Dupont</div>
+      <div class="dash-uemail">jean@savanna.com</div>
+      <span class="dash-plan" data-i18n="dash_plan">Plan Professionnel</span>
+    </div>
+    <div class="dash-grp" data-i18n="dash_main">Principal</div>
+    <div class="dash-nav-item act" onclick="selDash(this)"><span class="dash-nav-ico">📊</span><span data-i18n="dash_ov">Vue d'ensemble</span></div>
+    <div class="dash-nav-item" onclick="selDash(this)"><span class="dash-nav-ico">📦</span><span data-i18n="dash_ord">Mes Commandes</span></div>
+    <div class="dash-nav-item" onclick="selDash(this)"><span class="dash-nav-ico">➕</span><span data-i18n="dash_new">Nouvelle Commande</span></div>
+    <div class="dash-nav-item" onclick="selDash(this)"><span class="dash-nav-ico">🛒</span><span data-i18n="dash_cat">Catalogue</span></div>
+    <div class="dash-grp" data-i18n="dash_acc">Compte</div>
+    <div class="dash-nav-item" onclick="selDash(this)"><span class="dash-nav-ico">💳</span><span data-i18n="dash_sub">Abonnement</span></div>
+    <div class="dash-nav-item" onclick="selDash(this)"><span class="dash-nav-ico">📈</span><span data-i18n="dash_ana">Analytics</span></div>
+    <div class="dash-nav-item" onclick="selDash(this)"><span class="dash-nav-ico">👤</span><span data-i18n="dash_prof">Mon Profil</span></div>
+    <div class="dash-grp" data-i18n="dash_sup_g">Support</div>
+    <div class="dash-nav-item" onclick="selDash(this)"><span class="dash-nav-ico">💬</span><span data-i18n="dash_sup">Support</span></div>
+    <div class="dash-nav-item" onclick="logout()"><span class="dash-nav-ico">🚪</span><span data-i18n="dash_out">Déconnexion</span></div>
+  </aside>
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <div><div class="dash-ttl" data-i18n="dash_ov">Vue d'ensemble</div><div style="font-size:.72rem;color:var(--gray4)" id="dash-date">Mars 2026</div></div>
+      <button class="btn btn-gold btn-sm" data-i18n="dash_new">+ Nouvelle Commande</button>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-lbl" data-i18n="k1">Commandes ce mois</div><div class="kpi-val">24</div><div class="kpi-sub">↑ +12% vs mois dernier</div></div>
+      <div class="kpi"><div class="kpi-lbl" data-i18n="k2">Dépenses totales</div><div class="kpi-val">4 820 CAD</div><div class="kpi-sub" data-i18n="k2s">Budget restant: 1 180 CAD</div></div>
+      <div class="kpi"><div class="kpi-lbl" data-i18n="k3">En transit</div><div class="kpi-val">3</div><div class="kpi-sub" data-i18n="k3s">Livraison estimée: 24h</div></div>
+      <div class="kpi"><div class="kpi-lbl" data-i18n="k4">Score qualité</div><div class="kpi-val">4.8/5</div><div class="kpi-sub" data-i18n="k4s">18 livraisons évaluées</div></div>
+    </div>
+    <div class="g2" style="margin-bottom:1.35rem">
+      <div class="chart-card"><div class="chart-ttl" data-i18n="ch1">Commandes par mois (2026)</div><div class="bars"><div class="bar" style="height:40%"></div><div class="bar" style="height:65%"></div><div class="bar" style="height:50%"></div><div class="bar gold-bar" style="height:85%"></div><div class="bar" style="height:72%"></div><div class="bar" style="height:60%"></div><div class="bar" style="height:45%"></div><div class="bar" style="height:55%"></div><div class="bar" style="height:70%"></div><div class="bar gold-bar" style="height:100%"></div><div class="bar" style="height:78%"></div><div class="bar" style="height:92%"></div></div><div class="bl"><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div></div>
+      <div class="chart-card"><div class="chart-ttl" data-i18n="ch2">Répartition produits</div><div style="display:flex;flex-direction:column;gap:.7rem;margin-top:.5rem"><div><div style="display:flex;justify-content:space-between;font-size:.76rem;margin-bottom:.22rem"><span>🥚 <span data-i18n="p_eggs">Œufs</span></span><strong>42%</strong></div><div style="height:5px;background:var(--gray2);border-radius:3px"><div style="width:42%;height:100%;background:var(--g6);border-radius:3px"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:.76rem;margin-bottom:.22rem"><span>🐓 <span data-i18n="p_pou">Volaille</span></span><strong>28%</strong></div><div style="height:5px;background:var(--gray2);border-radius:3px"><div style="width:28%;height:100%;background:var(--gold);border-radius:3px"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:.76rem;margin-bottom:.22rem"><span>🥬 <span data-i18n="p_veg">Légumes</span></span><strong>18%</strong></div><div style="height:5px;background:var(--gray2);border-radius:3px"><div style="width:18%;height:100%;background:var(--g4);border-radius:3px"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:.76rem;margin-bottom:.22rem"><span>🍋 <span data-i18n="p_fr">Fruits</span></span><strong>12%</strong></div><div style="height:5px;background:var(--gray2);border-radius:3px"><div style="width:12%;height:100%;background:var(--brown);border-radius:3px"></div></div></div></div></div>
+    </div>
+    <div class="ot">
+      <div class="ot-hdr"><span data-i18n="recent_ord">Commandes récentes</span><button class="btn btn-outline-g btn-sm" data-i18n="see_all">Voir tout</button></div>
+      <table class="otable">
+        <thead><tr><th data-i18n="th_ord">Commande</th><th data-i18n="th_prod">Produit</th><th data-i18n="th_farm">Ferme</th><th data-i18n="th_amt">Montant</th><th data-i18n="th_stat">Statut</th></tr></thead>
+        <tbody>
+          <tr><td style="font-family:monospace;font-size:.76rem">#FD-2026-0241</td><td>🥚 Œufs (500u)</td><td>Ferme Estuaire</td><td style="font-weight:700">320 CAD</td><td><span class="pill pill-ok" data-i18n="s_del">✓ Livré</span></td></tr>
+          <tr><td style="font-family:monospace;font-size:.76rem">#FD-2026-0240</td><td>🐓 Poulets (50kg)</td><td>GIA Gabon</td><td style="font-weight:700">780 CAD</td><td><span class="pill pill-tr" data-i18n="s_tr">⟳ Transit</span></td></tr>
+          <tr><td style="font-family:monospace;font-size:.76rem">#FD-2026-0238</td><td>🥬 Légumes (120kg)</td><td>Ferme Verte CI</td><td style="font-weight:700">195 CAD</td><td><span class="pill pill-ok" data-i18n="s_del">✓ Livré</span></td></tr>
+          <tr><td style="font-family:monospace;font-size:.76rem">#FD-2026-0235</td><td>🥚 Œufs (1000u)</td><td>Ferme Estuaire</td><td style="font-weight:700">580 CAD</td><td><span class="pill pill-tr" data-i18n="s_tr">⟳ Transit</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- ═══════════════ LOGIN ═══════════════ -->
+<main class="page" id="page-login">
+<div class="form-sec">
+  <div class="wrap">
+    <div class="form-card" style="max-width:400px;margin:0 auto">
+      <div class="form-hdr"><span>🔑</span><h1 data-i18n="nav_login">Connexion</h1><p>Accédez à votre espace FermesDirect</p></div>
+      <form id="frm-login">
+        <div class="f-grp"><label>Email</label><input type="email" name="email" class="f-ctrl" required/></div>
+        <div class="f-grp"><label>Mot de passe</label><input type="password" name="password" class="f-ctrl" required/></div>
+        <button type="submit" class="f-submit">Se Connecter →</button>
+      </form>
+      <p style="text-align:center;margin-top:1.5rem;font-size:.85rem;color:var(--gray5)">
+        Pas encore de compte ? <a href="#" onclick="goPage('register')" style="color:var(--g7);font-weight:700">Inscrivez-vous</a>
+      </p>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- ═══════════════ REGISTER ═══════════════ -->
+<main class="page" id="page-register">
+<div class="form-sec">
+  <div class="wrap">
+    <div class="form-card" style="max-width:400px;margin:0 auto">
+      <div class="form-hdr"><span>✨</span><h1>Créer un Compte</h1><p>Rejoignez le réseau B2B FermesDirect</p></div>
+      <form id="frm-register">
+        <div class="f-grp"><label>Nom Complet</label><input type="text" name="name" class="f-ctrl" required/></div>
+        <div class="f-grp"><label>Email</label><input type="email" name="email" class="f-ctrl" required/></div>
+        <div class="f-grp"><label>Mot de passe</label><input type="password" name="password" class="f-ctrl" required/></div>
+        <div class="f-grp"><label>Vous êtes</label>
+          <select name="role" class="f-ctrl" required>
+            <option value="buyer">Acheteur</option>
+            <option value="farmer">Fermier</option>
+          </select>
+        </div>
+        <button type="submit" class="f-submit">Créer mon Compte →</button>
+      </form>
+      <p style="text-align:center;margin-top:1.5rem;font-size:.85rem;color:var(--gray5)">
+        Déjà un compte ? <a href="#" onclick="goPage('login')" style="color:var(--g7);font-weight:700">Connectez-vous</a>
+      </p>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- 404 placeholder -->
+<div id="page-404" style="display:none;min-height:100vh;background:var(--g9);align-items:center;justify-content:center;text-align:center;color:var(--white);padding-top:var(--nav)">
+  <div><div style="font-size:5rem;margin-bottom:1rem">🌾</div><h1 style="color:var(--gold);font-size:4rem">404</h1><p style="color:rgba(255,255,255,.7);margin:1rem 0 2rem" data-i18n="e404">Page non trouvée</p><button class="btn btn-gold btn-lg" onclick="goPage('home', null, false, event)" data-i18n="back_home">Retour à l'accueil</button></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT — i18n + Routing + UX
+     ═══════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ─── TRANSLATIONS ──────────────────────── */
+const T = {
+fr:{
+  nav_home:'Accueil',nav_about:'À Propos',nav_how:'Comment ça marche',nav_price:'Tarifs',nav_contact:'Contact',nav_dash:'Dashboard',
+  btn_farmer:'Je suis Fermier',btn_buyer:'Je suis Acheteur',
+  hero_eyebrow:'Plateforme B2B · Africa\'s #1',
+  hero_h1_a:'Des Fermes Africaines',hero_h1_b:'Directement à Votre Table',
+  hero_p:'FermesDirect connecte les meilleures fermes africaines avec les restaurants, hôtels, supermarchés et distributeurs. Fraîcheur garantie, livraison rapide, abonnements flexibles.',
+  hero_cta1:'Démarrer comme Acheteur',hero_cta2:'Rejoindre comme Fermier',
+  stat1:'Fermes partenaires',stat2:'Pays africains',stat3:'Satisfaction',stat4:'Clients B2B actifs',stat5:'Livraisons à l\'heure',
+  vid_lbl:'Voir la Présentation',vid_cap:'Hub FermesDirect · Logistique Urbaine · Fresh from Farm',
+  vid_ph:'🎬 Insérez votre iframe YouTube/Vimeo ici.',
+  t1:'🌾 Fresh From Farm',t2:'⚡ Livraison 24h–48h',t3:'🤝 Abonnements B2B',t4:'🌍 12 Pays Africains',t5:'🥚 Œufs · Poulets · Légumes · Fruits',t6:'💚 Certifié Non-OGM',
+  how_badge:'Processus Simple',how_h2:'Comment Fonctionne FermesDirect',how_p:'De la ferme à votre cuisine en 4 étapes simples et transparentes',
+  s1l:'Inscrivez-vous',s1t:'Choisissez votre plan et créez votre profil en 5 minutes',
+  s2l:'Connectez-vous',s2t:'Notre algorithme vous met en relation avec les meilleurs partenaires',
+  s3l:'Commandez',s3t:'Commandes récurrentes automatiques via dashboard ou API',
+  s4l:'Recevez',s4t:'Livraison fraîche en 24–48h avec traçabilité complète',
+  feat_badge:'Avantages Plateforme',feat_h2:'Pourquoi Choisir FermesDirect ?',feat_p:'Infrastructure logistique africaine conçue pour la fraîcheur, la fiabilité et la croissance',
+  f1t:'Réseau Logistique Pan-Africain',f1p:'Hubs régionaux, camions réfrigérés, motos de livraison urbaine. De la ferme en 24–48h.',
+  f2t:'Produits 100% Traçables',f2p:'QR code sur chaque caisse. Traçabilité complète ferme → client en temps réel.',
+  f3t:'Dashboard BI Temps Réel',f3p:'Analytics, commandes, prévisions IA. Optimisez votre budget alimentaire.',
+  f4t:'Abonnements Flexibles B2B',f4p:'Plans mensuels adaptés à votre volume. Facturation centralisée, sans surprise.',
+  f5t:'Chaîne du Froid Garantie',f5p:'Stockage froid, transport réfrigéré, monitoring température en temps réel.',
+  f6t:'Support Dédié',f6p:'Gestionnaire attitré, WhatsApp 7j/7, SLA garanti selon votre plan.',
+  dctab_h:'Vous êtes Acheteur B2B ?',
+  dctab_p:'Restaurants, hôtels, supermarchés — accédez aux meilleures fermes africaines à partir de 149 CAD/mois.',
+  cb1:'✅ Livraison 24–48h garantie',cb2:'✅ Commandes récurrentes automatiques',cb3:'✅ Dashboard analytique inclus',cb4:'✅ Gestionnaire de compte dédié',
+  dctab_btn:'Voir les Plans Acheteur',
+  dctaf_h:'Vous êtes Fermier ?',
+  dctaf_p:'Rejoignez le réseau et vendez directement aux professionnels. À partir de 49 CAD/mois.',
+  cf1:'✅ Accès à 2400+ acheteurs B2B',cf2:'✅ Paiements rapides et sécurisés',cf3:'✅ Prévisions de demande IA',cf4:'✅ Support logistique intégré',
+  dctaf_btn:'Voir les Plans Fermier',
+  gal_badge:'Notre Réseau · Our Network',gal_h2:"L'Infrastructure FermesDirect",gal_sub:'Hubs logistiques · Flotte brandée · Livreurs certifiés · Partout en Afrique',g1:'Hub Logistique Régional',g2:'Livraison Urbaine',g3:'Transport Intercity',g4:'Flotte Brandée',g5:'Fresh From Farm Delivered Fast',
+  test_badge:'Témoignages Clients',test_h2:'Ce Que Disent Nos Partenaires',
+  tq1:'"FermesDirect a transformé notre approvisionnement. Les prix ont baissé de 23% et la qualité est incomparable."',
+  tr1:'Directeur Achats · Hôtel Okoumé Palace, Libreville',
+  tq2:'"Le paiement en 7 jours avec le plan Premium a complètement changé ma trésorerie. Indispensable."',
+  tr2:'Éleveur Avicole · Ferme Estuaire, Gabon',
+  tq3:'"Le dashboard analytique nous permet d\'anticiper nos besoins et d\'éviter le gaspillage alimentaire."',
+  tr3:'Chef Exécutive · Restaurant Le Savanna, Abidjan',
+  fin_badge:'Commencer Maintenant',fin_h2:'Prêt à Rejoindre Africa\'s Farm Network ?',
+  fin_p:'Rejoignez 2400+ entreprises africaines qui se fournissent directement auprès des meilleures fermes.',
+  foot_tag:'Africa\'s Farm Supply Network. De la ferme africaine directement à votre table.',
+  fc1:'Plateforme',fc2:'Entreprise',fc3:'Légal',fc_pb:'Tarifs Acheteurs',fc_pf:'Tarifs Fournisseurs',fc_blog:'Blog',fc_jobs:'Carrières',fc_cgu:'CGU',fc_priv:'Confidentialité',fc_cook:'Cookies',fc_sec:'Sécurité',
+  foot_copy:'© 2026 FermesDirect. Tous droits réservés.',
+  pr_badge:'Plans & Tarifs',pr_h1:'Des Plans Pour Chaque Ambition',pr_p:'14 jours d\'essai gratuit sur tous les plans acheteurs. Annulation facile.',
+  ptb:'🏨 Acheteurs B2B',ptf:'🌾 Fermiers Fournisseurs',
+  pb_badge:'Abonnements Acheteurs',pb_h2:'Votre Plan, Votre Volume',pb_p:'Tous plans incluent : dashboard, traçabilité QR, facturation centralisée, support FR/EN',
+  pf_badge:'Abonnements Fournisseurs',pf_h2:'Votre Plan Fermier',pf_p:'Tous plans incluent : profil ferme public, accès marketplace, paiements sécurisés',
+  tier_start:'Démarrage',tier_growth:'Croissance',per_mo:'/mois',
+  plan_ess:'Essentiel',plan_pro:'Professionnel',plan_ent:'Entreprise',plan_part:'Partenaire',plan_prof:'Pro Ferme',plan_prem:'Premium Ferme',
+  pop_lbl:'⭐ Plus Populaire',rec_lbl:'⭐ Recommandé',
+  be1:'Jusqu\'à 500 kg/mois',be2:'5 catégories produits',be3:'Livraison garantie 48h',be4:'Dashboard basique',be5:'Support email',bx_ded:'Gestionnaire dédié',
+  bp1:'Jusqu\'à 2 000 kg/mois',bp2:'Toutes catégories',bp3:'Livraison garantie 24h',bp4:'Analytics avancés',bp5:'Gestionnaire de compte dédié',bp6:'Commandes récurrentes auto',bp7:'Support WhatsApp prioritaire',
+  bx1:'Volume illimité',bx2:'Livraison same-day option',bx3:'API complète + webhooks',bx4:'SLA 99.9% garanti',bx5:'Intégration ERP/SAP',bx6:'Support 24/7 dédié',bx7:'Branding caisses perso',
+  ff1:'3 catégories produits',ff2:'Profil ferme basique',ff3:'Paiement sous 30 jours',ff4:'Accès marketplace',ff_feat:'Listing featured',
+  fp1:'10 catégories produits',fp2:'Profil ferme featured',fp3:'Paiement sous 15 jours',fp4:'Analytics de demande',fp5:'Matching prioritaire acheteurs',fp6:'Support WhatsApp',
+  fx1:'Catégories illimitées',fx2:'Top priorité listing',fx3:'Paiement sous 7 jours',fx4:'Prévisions demande IA',fx5:'Formation équipe incluse',fx6:'Support 24/7 dédié',
+  btn_149:'Commencer – 149 CAD/mois',btn_399:'Commencer – 399 CAD/mois',btn_999:'Commencer – 999 CAD/mois',
+  btn_49:'Rejoindre – 49 CAD/mois',btn_99:'Rejoindre – 99 CAD/mois',btn_199:'Rejoindre – 199 CAD/mois',
+  pr_cta_p:'Besoin d\'un plan sur mesure pour votre organisation ?',pr_cta_btn:'Contactez notre équipe commerciale',
+  back_plans:'← Voir les plans',back_home:'Retour à l\'accueil',
+  rb_h1:'Inscription Acheteur B2B',rb_sub:'14 jours d\'essai gratuit — aucune carte requise',
+  rf_h1:'Inscription Fournisseur',rf_sub:'Rejoignez 500+ fermes partenaires du réseau FermesDirect',
+  lbl_name:'Votre Nom *',lbl_co:'Entreprise *',lbl_email:'Email *',lbl_phone:'Téléphone *',lbl_country:'Pays *',lbl_btype:'Type d\'activité *',lbl_plan:'Choisissez votre Plan *',lbl_prods:'Produits qui vous intéressent',lbl_msg:'Message (optionnel)',
+  lbl_farm:'Nom de la Ferme *',lbl_fsize:'Taille exploitation *',lbl_ptypes:'Vos Produits *',lbl_fplan:'Choisissez votre Plan *',lbl_cap:'Capacité de production estimée',lbl_fdesc:'Description de votre ferme',
+  sel_c:'Sélectionnez',opt_other:'Autre',bt_rest:'Restaurant',bt_hotel:'Hôtel / Lodge',bt_super:'Supermarché',bt_dist:'Distributeur',
+  fs_s:'Petite (< 2 ha)',fs_m:'Moyenne (2–20 ha)',fs_l:'Grande (> 20 ha)',
+  p_eggs:'Œufs',p_pou:'Volaille',p_veg:'Légumes',p_fr:'Fruits',p_fish:'Poisson',p_grain:'Céréales',
+  pv_500:'/mois · 500 kg',pv_2k:'/mois · 2 000 kg',pv_unl:'/mois · Illimité',
+  terms:'J\'accepte les CGU et la Politique de Confidentialité *',
+  rb_btn:'Démarrer mon Essai Gratuit 14 Jours →',rb_hint:'✅ Essai gratuit · Aucune carte · Annulation facile',
+  rf_btn:'Rejoindre le Réseau FermesDirect →',rf_hint:'✅ Premier mois offert · Paiement rapide garanti',
+  suc_msg:'Inscription reçue ! Notre équipe vous contacte sous 24h.',suc_farm:'Bienvenue dans le réseau ! Notre équipe vous contacte sous 24h.',
+  toast_ok:'🎉 Demande reçue ! Nous vous contactons sous 24h.',toast_err:'Erreur réseau. Veuillez réessayer.',
+  ab_badge:'Notre Histoire',ab_h1:'Réinventer la Chaîne Alimentaire Africaine',ab_p:'FermesDirect est né d\'une conviction : les meilleures fermes africaines méritent d\'accéder directement aux meilleurs acheteurs.',
+  mission_badge:'Notre Mission',mission_h2:'Éliminer les Intermédiaires. Créer de la Valeur.',
+  mission_p1:'En Afrique, les producteurs agricoles reçoivent souvent moins de 20% de la valeur finale de leurs produits à cause de chaînes inefficaces.',
+  mission_p2:'FermesDirect change ça. Les fermiers gagnent plus, les acheteurs paient moins, et les consommateurs reçoivent des produits plus frais et traçables.',
+  ab_founded:'Fondation',
+  val_badge:'Nos Valeurs',val_h2:'Ce en Quoi Nous Croyons',
+  v1t:'Durabilité',v1p:'Pratiques agricoles durables et fermes certifiées non-OGM.',
+  v2t:'Équité',v2p:'Paiements justes et rapides pour les fermiers. Transparence totale des prix.',
+  v3t:'Excellence Opérationnelle',v3p:'Infrastructure de classe mondiale. SLA rigoureux. Qualité garantie.',
+  v4t:'Impact Africain',v4p:'Chaque commande renforce l\'économie agricole locale en Afrique.',
+  infra_badge:'Infrastructure',infra_h2:'L\'Écosystème FermesDirect',infra_p:'5 piliers physiques pour dominer la logistique agricole africaine',
+  inf1t:'Hub Régional',inf1p:'5 000–15 000 m² · Réception, tri, stockage, dispatch',
+  inf2t:'Station Urbaine',inf2p:'200–400 m² · Dark hub · Dispatch motos',
+  inf3t:'Camions',inf3p:'3.5T · 7.5T · 12T · Transport inter-ville',
+  inf4t:'Motos / Vans',inf4p:'Livraison urbaine last-mile · Traçabilité QR',
+  inf5t:'Caisses RFID',inf5p:'Empilables, lavables, RFID possible',
+  how_page_badge:'Processus',how_page_h1:'Comment Fonctionne FermesDirect ?',how_page_p:'Plateforme simple, transparente et efficace.',
+  for_buyers:'Pour les Acheteurs',buyer_steps_h:'Approvisionnez-vous en 4 étapes',
+  bs1t:'Créez votre compte',bs1p:'Choisissez votre plan et complétez votre profil en 5 minutes.',
+  bs2t:'Explorez le catalogue',bs2p:'500+ fermes certifiées filtrées par produit, région et prix.',
+  bs3t:'Passez vos commandes',bs3p:'Commandes uniques ou récurrentes. Notre IA optimise vos approvisionnements.',
+  bs4t:'Recevez & Tracez',bs4p:'Livraison en 24–48h. QR code par caisse. Dashboard temps réel inclus.',
+  for_farmers:'Pour les Fermiers',farmer_steps_h:'Vendez Directement en 4 Étapes',
+  fs1t:'Inscrivez votre ferme',fs1p:'Créez votre profil, listez vos produits avec photos.',
+  fs2t:'Recevez des commandes',fs2p:'Notre algorithme vous met en relation avec les acheteurs.',
+  fs3t:'Préparez & Remettez',fs3p:'Notre équipe collecte à la ferme. Zéro souci de transport.',
+  fs4t:'Recevez votre paiement',fs4p:'7–30 jours selon le plan. Mobile Money ou virement bancaire.',
+  ct_badge:'Contact',ct_h1:'Parlons de Votre Projet',ct_p:'Notre équipe répond en moins de 24 heures, en français ou en anglais.',
+  ci_title:'Nos Coordonnées',ci_desc:'Présents dans 12 pays africains et au Canada. Bilingues FR/EN.',
+  c_hq:'Siège Social',c_af:'Bureau Afrique',c_wa:'WhatsApp B2B',c_hrs:'Heures Support',c_hrs_v:'Lun–Ven 8h–20h (WAT/EST)',
+  c_part_t:'🤝 Partenariat Stratégique',c_part_p:'Investisseurs, distributeurs régionaux, partenaires logistiques — contactez notre équipe exécutive.',
+  cf_title:'Envoyez-nous un Message',c_you_are:'Vous êtes',c_type_b:'Acheteur B2B',c_type_f:'Fermier / Producteur',c_type_p:'Partenaire / Distributeur',c_type_pr:'Presse / Médias',
+  c_subj:'Sujet *',c_send:'Envoyer le Message →',suc_ct:'Message envoyé ! Nous vous répondrons sous 24 heures.',
+  dash_plan:'Plan Professionnel',dash_main:'Principal',dash_acc:'Compte',
+  dash_ov:'Vue d\'ensemble',dash_ord:'Mes Commandes',dash_new:'+ Nouvelle Commande',dash_cat:'Catalogue',dash_sub:'Abonnement',dash_ana:'Analytics',dash_prof:'Mon Profil',dash_sup_g:'Support',dash_sup:'Support',dash_out:'Déconnexion',
+  k1:'Commandes ce mois',k2:'Dépenses totales',k2s:'Budget restant: 1 180 CAD',k3:'En transit',k3s:'Livraison estimée: 24h',k4:'Score qualité',k4s:'18 livraisons évaluées',
+  ch1:'Commandes par mois (2026)',ch2:'Répartition produits',
+  recent_ord:'Commandes récentes',see_all:'Voir tout',
+  th_ord:'Commande',th_prod:'Produit',th_farm:'Ferme',th_amt:'Montant',th_stat:'Statut',
+  s_del:'✓ Livré',s_tr:'⟳ Transit',
+  e404:'Page non trouvée',
+},
+en:{
+  nav_home:'Home',nav_about:'About',nav_how:'How it works',nav_price:'Pricing',nav_contact:'Contact',nav_dash:'Dashboard',
+  btn_farmer:'I\'m a Farmer',btn_buyer:'I\'m a Buyer',
+  hero_eyebrow:'B2B Platform · Africa\'s #1',
+  hero_h1_a:'From African Farms',hero_h1_b:'Directly to Your Table',
+  hero_p:'FermesDirect connects Africa\'s best farms with restaurants, hotels, supermarkets and distributors. Guaranteed freshness, fast delivery, flexible subscriptions.',
+  hero_cta1:'Start as a Buyer',hero_cta2:'Join as a Farmer',
+  stat1:'Partner farms',stat2:'African countries',stat3:'Satisfaction',stat4:'Active B2B clients',stat5:'On-time deliveries',
+  vid_lbl:'Watch the Presentation',vid_cap:'FermesDirect Hub · Urban Logistics · Fresh from Farm',
+  vid_ph:'🎬 Insert your YouTube/Vimeo iframe here.',
+  t1:'🌾 Guaranteed Freshness',t2:'⚡ Delivery 24h–48h',t3:'🤝 B2B Subscriptions',t4:'🌍 12 African Countries',t5:'🥚 Eggs · Poultry · Vegetables · Fruits',t6:'💚 Non-GMO Certified',
+  how_badge:'Simple Process',how_h2:'How FermesDirect Works',how_p:'From farm to your kitchen in 4 simple, transparent steps',
+  s1l:'Sign Up',s1t:'Choose your plan and create your profile in 5 minutes',
+  s2l:'Connect',s2t:'Our algorithm matches you with the best partners for your needs',
+  s3l:'Order',s3t:'Automatic recurring orders via dashboard or API',
+  s4l:'Receive',s4t:'Fresh delivery in 24–48h with full traceability',
+  feat_badge:'Platform Benefits',feat_h2:'Why Choose FermesDirect?',feat_p:'African logistics infrastructure built for freshness, reliability and growth',
+  f1t:'Pan-African Logistics Network',f1p:'Regional hubs, refrigerated trucks, urban delivery bikes. Farm to door in 24–48h.',
+  f2t:'100% Traceable Products',f2p:'QR code on every crate. Full farm-to-client traceability in real time.',
+  f3t:'Real-Time BI Dashboard',f3p:'Analytics, orders, AI forecasts. Optimize your food budget.',
+  f4t:'Flexible B2B Subscriptions',f4p:'Monthly plans adapted to your volume. Centralized billing, no surprises.',
+  f5t:'Cold Chain Guaranteed',f5p:'Cold storage, refrigerated transport, temperature monitoring in real time.',
+  f6t:'Dedicated Support',f6p:'Dedicated account manager, WhatsApp 7d/7, guaranteed SLA.',
+  dctab_h:'Are you a B2B Buyer?',
+  dctab_p:'Restaurants, hotels, supermarkets — access Africa\'s best farms from 149 CAD/month.',
+  cb1:'✅ 24–48h guaranteed delivery',cb2:'✅ Automatic recurring orders',cb3:'✅ Analytics dashboard included',cb4:'✅ Dedicated account manager',
+  dctab_btn:'See Buyer Plans',
+  dctaf_h:'Are you a Farmer?',
+  dctaf_p:'Join the network and sell directly to professionals. From 49 CAD/month.',
+  cf1:'✅ Access to 2400+ B2B buyers',cf2:'✅ Fast, secure payments',cf3:'✅ AI demand forecasting',cf4:'✅ Integrated logistics support',
+  dctaf_btn:'See Farmer Plans',
+  gal_badge:'Our Network',gal_h2:'FermesDirect Infrastructure',gal_sub:'Logistics Hubs · Branded Fleet · Certified Drivers · Across Africa',g1:'Regional Logistics Hub',g2:'Urban Delivery',g3:'Intercity Transport',g4:'Branded Fleet',g5:'Fresh From Farm Delivered Fast',
+  test_badge:'Client Testimonials',test_h2:'What Our Partners Say',
+  tq1:'"FermesDirect transformed our sourcing. Prices dropped 23% and quality is unmatched."',tr1:'Purchasing Director · Okoumé Palace Hotel, Libreville',
+  tq2:'"7-day payment on the Premium plan completely transformed my cash flow. Essential."',tr2:'Poultry Farmer · Ferme Estuaire, Gabon',
+  tq3:'"The analytics dashboard lets us anticipate needs and eliminate food waste."',tr3:'Executive Chef · Restaurant Le Savanna, Abidjan',
+  fin_badge:'Get Started Now',fin_h2:'Ready to Join Africa\'s Farm Network?',
+  fin_p:'Join 2400+ African businesses sourcing directly from the continent\'s best farms.',
+  foot_tag:'Africa\'s Farm Supply Network. From African farms directly to your table.',
+  fc1:'Platform',fc2:'Company',fc3:'Legal',fc_pb:'Buyer Plans',fc_pf:'Farmer Plans',fc_blog:'Blog',fc_jobs:'Careers',fc_cgu:'Terms',fc_priv:'Privacy',fc_cook:'Cookies',fc_sec:'Security',
+  foot_copy:'© 2026 FermesDirect. All rights reserved.',
+  pr_badge:'Plans & Pricing',pr_h1:'Plans for Every Ambition',pr_p:'14-day free trial on all buyer plans. Easy cancellation.',
+  ptb:'🏨 B2B Buyers',ptf:'🌾 Farmer Suppliers',
+  pb_badge:'Buyer Subscriptions',pb_h2:'Your Plan, Your Volume',pb_p:'All plans include: dashboard, QR traceability, centralized billing, FR/EN support',
+  pf_badge:'Supplier Subscriptions',pf_h2:'Choose Your Farmer Plan',pf_p:'All plans include: public farm profile, marketplace access, secure payments',
+  tier_start:'Starter',tier_growth:'Growth',per_mo:'/month',
+  plan_ess:'Essential',plan_pro:'Professional',plan_ent:'Enterprise',plan_part:'Partner',plan_prof:'Farm Pro',plan_prem:'Farm Premium',
+  pop_lbl:'⭐ Most Popular',rec_lbl:'⭐ Recommended',
+  be1:'Up to 500 kg/month',be2:'5 product categories',be3:'Guaranteed 48h delivery',be4:'Basic dashboard',be5:'Email support',bx_ded:'Dedicated manager',
+  bp1:'Up to 2,000 kg/month',bp2:'All categories',bp3:'Guaranteed 24h delivery',bp4:'Advanced analytics',bp5:'Dedicated account manager',bp6:'Automatic recurring orders',bp7:'Priority WhatsApp support',
+  bx1:'Unlimited volume',bx2:'Same-day delivery option',bx3:'Full API + webhooks',bx4:'SLA 99.9% guaranteed',bx5:'ERP/SAP integration',bx6:'24/7 dedicated support',bx7:'Custom branded crates',
+  ff1:'3 product categories',ff2:'Basic farm profile',ff3:'Payment within 30 days',ff4:'Marketplace access',ff_feat:'Featured listing',
+  fp1:'10 product categories',fp2:'Featured farm profile',fp3:'Payment within 15 days',fp4:'Market demand analytics',fp5:'Priority buyer matching',fp6:'WhatsApp support',
+  fx1:'Unlimited categories',fx2:'Top priority listing',fx3:'Payment within 7 days',fx4:'AI demand forecasting',fx5:'Team training included',fx6:'24/7 dedicated support',
+  btn_149:'Start – 149 CAD/month',btn_399:'Start – 399 CAD/month',btn_999:'Start – 999 CAD/month',
+  btn_49:'Join – 49 CAD/month',btn_99:'Join – 99 CAD/month',btn_199:'Join – 199 CAD/month',
+  pr_cta_p:'Need a custom plan for your organization?',pr_cta_btn:'Contact our sales team',
+  back_plans:'← See plans',back_home:'Back to home',
+  rb_h1:'Buyer B2B Registration',rb_sub:'14-day free trial — no credit card required',
+  rf_h1:'Supplier Registration',rf_sub:'Join 500+ partner farms in the FermesDirect network',
+  lbl_name:'Your Name *',lbl_co:'Company *',lbl_email:'Email *',lbl_phone:'Phone *',lbl_country:'Country *',lbl_btype:'Business Type *',lbl_plan:'Choose Your Plan *',lbl_prods:'Products of interest',lbl_msg:'Message (optional)',
+  lbl_farm:'Farm Name *',lbl_fsize:'Farm Size *',lbl_ptypes:'Your Products *',lbl_fplan:'Choose Your Plan *',lbl_cap:'Estimated production capacity',lbl_fdesc:'Describe your farm',
+  sel_c:'Select',opt_other:'Other',bt_rest:'Restaurant',bt_hotel:'Hotel / Lodge',bt_super:'Supermarket',bt_dist:'Distributor',
+  fs_s:'Small (< 2 ha)',fs_m:'Medium (2–20 ha)',fs_l:'Large (> 20 ha)',
+  p_eggs:'Eggs',p_pou:'Poultry',p_veg:'Vegetables',p_fr:'Fruits',p_fish:'Fish',p_grain:'Grains',
+  pv_500:'/month · 500 kg',pv_2k:'/month · 2,000 kg',pv_unl:'/month · Unlimited',
+  terms:'I accept the Terms and Conditions and Privacy Policy *',
+  rb_btn:'Start My 14-Day Free Trial →',rb_hint:'✅ Free trial · No credit card · Easy cancellation',
+  rf_btn:'Join the FermesDirect Network →',rf_hint:'✅ First month offered · Fast payment guaranteed',
+  suc_msg:'Registration received! Our team will contact you within 24h.',suc_farm:'Welcome to the network! Our team will contact you within 24h.',
+  toast_ok:'🎉 Request received! We\'ll contact you within 24h.',toast_err:'Network error. Please try again.',
+  ab_badge:'Our Story',ab_h1:'Reinventing the African Food Supply Chain',ab_p:'FermesDirect was born from a conviction: Africa\'s best farms deserve direct access to the best buyers.',
+  mission_badge:'Our Mission',mission_h2:'Eliminating Middlemen. Creating Value.',
+  mission_p1:'In Africa, agricultural producers often receive less than 20% of the final product value due to long, inefficient supply chains.',
+  mission_p2:'FermesDirect changes that. Farmers earn more, buyers pay less, and consumers receive fresher, traceable products.',
+  ab_founded:'Founded',
+  val_badge:'Our Values',val_h2:'What We Believe In',
+  v1t:'Sustainability',v1p:'Sustainable farming practices and non-GMO certified farms.',
+  v2t:'Fairness',v2p:'Fair, fast payments for farmers. Full price transparency. No hidden margins.',
+  v3t:'Operational Excellence',v3p:'World-class logistics infrastructure. Rigorous SLAs. Quality guaranteed.',
+  v4t:'African Impact',v4p:'Every order strengthens the local agricultural economy in Africa.',
+  infra_badge:'Infrastructure',infra_h2:'The FermesDirect Ecosystem',infra_p:'5 physical pillars to dominate African agricultural logistics',
+  inf1t:'Regional Hub',inf1p:'5,000–15,000 m² · Reception, sorting, storage, dispatch',
+  inf2t:'Urban Station',inf2p:'200–400 m² · Dark hub · Bike dispatch',
+  inf3t:'Trucks',inf3p:'3.5T · 7.5T · 12T · Intercity transport',
+  inf4t:'Bikes / Vans',inf4p:'Urban last-mile delivery · QR traceability',
+  inf5t:'RFID Crates',inf5p:'Stackable, washable, RFID-ready',
+  how_page_badge:'Process',how_page_h1:'How Does FermesDirect Work?',how_page_p:'Simple, transparent and efficient platform.',
+  for_buyers:'For Buyers',buyer_steps_h:'Source in 4 steps',
+  bs1t:'Create your account',bs1p:'Choose your plan and complete your profile in 5 minutes.',
+  bs2t:'Browse the catalog',bs2p:'500+ certified farms filtered by product, region and price.',
+  bs3t:'Place your orders',bs3p:'One-time or recurring orders. Our AI optimizes your sourcing.',
+  bs4t:'Receive & Track',bs4p:'Delivery in 24–48h. QR code per crate. Real-time dashboard.',
+  for_farmers:'For Farmers',farmer_steps_h:'Sell Directly in 4 Steps',
+  fs1t:'Register your farm',fs1p:'Create your profile, list your products with photos.',
+  fs2t:'Receive orders',fs2p:'Our algorithm matches you with the right buyers.',
+  fs3t:'Prepare & Hand Over',fs3p:'Our team collects at the farm. Zero transport hassle.',
+  fs4t:'Get paid',fs4p:'7–30 days based on plan. Mobile Money or bank transfer.',
+  ct_badge:'Contact',ct_h1:'Let\'s Talk About Your Project',ct_p:'Our team responds within 24 hours, in French or English.',
+  ci_title:'Contact Details',ci_desc:'Present in 12 African countries and Canada. Bilingual FR/EN.',
+  c_hq:'Headquarters',c_af:'Africa Office',c_wa:'WhatsApp B2B',c_hrs:'Support Hours',c_hrs_v:'Mon–Fri 8am–8pm (WAT/EST)',
+  c_part_t:'🤝 Strategic Partnership',c_part_p:'Investors, regional distributors, logistics partners — contact our executive team.',
+  cf_title:'Send Us a Message',c_you_are:'You are',c_type_b:'B2B Buyer',c_type_f:'Farmer / Producer',c_type_p:'Partner / Distributor',c_type_pr:'Press / Media',
+  c_subj:'Subject *',c_send:'Send Message →',suc_ct:'Message sent! We\'ll reply within 24 hours.',
+  dash_plan:'Professional Plan',dash_main:'Main',dash_acc:'Account',
+  dash_ov:'Overview',dash_ord:'My Orders',dash_new:'+ New Order',dash_cat:'Catalog',dash_sub:'Subscription',dash_ana:'Analytics',dash_prof:'My Profile',dash_sup_g:'Support',dash_sup:'Support',dash_out:'Logout',
+  k1:'Orders this month',k2:'Total spending',k2s:'Remaining budget: 1,180 CAD',k3:'In transit',k3s:'Estimated delivery: 24h',k4:'Quality score',k4s:'Based on 18 deliveries',
+  ch1:'Orders per month (2026)',ch2:'Product breakdown',
+  recent_ord:'Recent orders',see_all:'View all',
+  th_ord:'Order',th_prod:'Product',th_farm:'Farm',th_amt:'Amount',th_stat:'Status',
+  s_del:'✓ Delivered',s_tr:'⟳ In transit',
+  e404:'Page not found',
+}};
+
+/* ─── STATE ──────────────────────────────── */
+let lang = 'fr';
+let user = null;
+let token = localStorage.getItem('fd-token') || null;
+const PAGES = ['home','pricing','register-buyer','register-farmer','about','how','contact','dashboard','login','register','404'];
+
+/* ─── DEBUG ──────────────────────────────── */
+window.onerror = function(m, s, l, c, e) {
+  console.error('JS Error:', m, 'at', s, ':', l);
+  return false;
+};
+
+/* ─── LANG DETECTION ─────────────────────── */
+function detectLang() {
+  console.log('Detecting language...');
+  try {
+    const stored = localStorage.getItem('fd-lang');
+    if (stored === 'fr' || stored === 'en') return stored;
+  } catch(e) { console.warn('localStorage access failed'); }
+  return (navigator.language || 'fr').toLowerCase().startsWith('fr') ? 'fr' : 'en';
+}
+
+function applyLang(l) {
+  console.log('Applying language:', l);
+  lang = l;
+  document.documentElement.lang = l;
+  try { localStorage.setItem('fd-lang', l); } catch(e) {}
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    const k = el.getAttribute('data-i18n');
+    if (T[l] && T[l][k] != null) el.textContent = T[l][k];
+  });
+  ['btn-fr','btn-en','mob-fr','mob-en'].forEach(function(id) {
+    const b = document.getElementById(id);
+    if (b) b.classList.toggle('act', b.id === 'btn-'+l || b.id === 'mob-'+l);
+  });
+}
+
+function setLang(l) { applyLang(l); }
+
+/* ─── PAGE ROUTING ───────────────────────── */
+/* Page slug → URL path map */
+const PAGE_PATH = {
+  'home': '/', 'pricing': '/pricing', 'register-buyer': '/register-buyer',
+  'register-farmer': '/register-farmer', 'about': '/about', 'how': '/how-it-works',
+  'contact': '/contact', 'dashboard': '/dashboard', '404': '/404'
+};
+/* URL path → page slug map */
+const PATH_PAGE = {};
+Object.keys(PAGE_PATH).forEach(function(k){ PATH_PAGE[PAGE_PATH[k]] = k; });
+
+function goPage(id, opts, skipHistory, ev) {
+  if (ev && ev.preventDefault) ev.preventDefault();
+  
+  // Auth guard
+  if (id === 'dashboard' && !token) {
+    console.log('Access denied to dashboard. Redirecting to login.');
+    return goPage('login', { redirect: 'dashboard' }, skipHistory);
+  }
+  
+  console.log('Navigating to:', id);
+  // Show/hide all page elements (main tags + page-404 div)
+  PAGES.forEach(function(p) {
+    const el = document.getElementById('page-'+p);
+    if (!el) {
+      if (p === id) console.warn('Element not found for page:', p);
+      return;
+    }
+    if (p === id) {
+      el.style.display = p === '404' ? 'flex' : '';
+      el.className = 'page show';
+    } else {
+      el.style.display = 'none';
+      el.className = 'page';
+    }
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  initAnims();
+  if (opts && opts.plan) {
+    const planInput = id === 'register-buyer' ? document.getElementById('buyer-plan') : document.getElementById('farmer-plan');
+    if (planInput) planInput.value = opts.plan;
+    const allOpts = document.querySelectorAll('#page-' + id + ' .plan-opt');
+    allOpts.forEach(function(opt) {
+      const match = opt.onclick && opt.onclick.toString().includes(opts.plan);
+      if (match) opt.classList.add('sel'); else opt.classList.remove('sel');
+    });
+  }
+  // Update active nav links (Header + Mobile)
+  document.querySelectorAll('.nav-a').forEach(function(a) {
+    a.classList.remove('act');
+    const oc = a.getAttribute('onclick');
+    if (oc && oc.indexOf("'" + id + "'") !== -1) a.classList.add('act');
+  });
+  // Update browser URL (pushState) — skip on file:// protocol
+  if (!skipHistory && typeof history !== 'undefined' && PAGE_PATH[id]
+      && location.protocol !== 'file:' && location.pathname.indexOf('.html') === -1) {
+    try {
+      console.log('Pushing state for:', id, 'path:', PAGE_PATH[id]);
+      history.pushState({ page: id }, '', PAGE_PATH[id]);
+    } catch(e) { console.error('pushState failed:', e); }
+  }
+}
+
+/* Handle browser back/forward buttons (HTTP server only) */
+if (location.protocol !== 'file:') {
+  window.addEventListener('popstate', function(e) {
+    var id = (e.state && e.state.page) ? e.state.page : (PATH_PAGE[location.pathname] || PATH_PAGE[location.pathname.replace(/\/$/, '')] || 'home');
+    goPage(id, null, true);
+  });
+}
+
+/* On load: resolve current URL → correct SPA page */
+(function() {
+  // file:// protocol or .html direct-open → always start on home, no URL routing
+  var isFile = (location.protocol === 'file:' || location.pathname.indexOf('.html') !== -1);
+  if (isFile) {
+    goPage('home', null, true);
+    return;
+  }
+  var p = location.pathname;
+  if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+  var id = PATH_PAGE[p] || 'home';
+  goPage(id, null, true);
+  try { history.replaceState({ page: id }, '', PAGE_PATH[id] || p); } catch(e) {}
+})();
+
+/* ─── HAMBURGER ──────────────────────────── */
+const hamEl = document.getElementById('ham');
+const mobNav = document.getElementById('mob-nav');
+hamEl && hamEl.addEventListener('click', function() {
+  const o = mobNav.classList.toggle('open');
+  hamEl.classList.toggle('open', o);
+  hamEl.setAttribute('aria-expanded', String(o));
+});
+function closeNav() { mobNav.classList.remove('open'); hamEl.classList.remove('open'); hamEl.setAttribute('aria-expanded','false'); }
+document.addEventListener('click', function(e) {
+  if (mobNav.classList.contains('open') && !mobNav.contains(e.target) && !hamEl.contains(e.target)) closeNav();
+});
+
+/* ─── SCROLL HEADER ──────────────────────── */
+const hdrEl = document.getElementById('hdr');
+window.addEventListener('scroll', function() { hdrEl.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+
+/* ─── INTERSECTION OBSERVER ─────────────── */
+function initAnims() {
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('[data-a]:not(.vis)').forEach(function(el) { obs.observe(el); });
+}
+
+/* ─── COUNTER ANIMATION ──────────────────── */
+(function() {
+  const co = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      co.unobserve(el);
+      const tgt = parseFloat(el.dataset.tgt || '0');
+      const sfx = el.dataset.sfx || '';
+      const dec = parseInt(el.dataset.dec || '0');
+      const dur = 1800, s0 = performance.now();
+      (function tick(now) {
+        const p = Math.min((now - s0) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        const v = tgt * ease;
+        el.textContent = (dec ? v.toFixed(dec) : Math.floor(v).toLocaleString()) + sfx;
+        if (p < 1) requestAnimationFrame(tick);
+      })(s0);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-cnt]').forEach(function(el) { co.observe(el); });
+})();
+
+/* ─── VIDEO MODAL ────────────────────────── */
+const vidModal = document.getElementById('vid-modal');
+const vidTrig  = document.getElementById('vid-trig');
+const vidClose = document.getElementById('vid-close');
+vidTrig && vidTrig.addEventListener('click', function() { vidModal.classList.add('open'); document.body.style.overflow = 'hidden'; });
+vidClose && vidClose.addEventListener('click', function() { vidModal.classList.remove('open'); document.body.style.overflow = ''; });
+vidModal && vidModal.addEventListener('click', function(e) { if (e.target === vidModal) { vidModal.classList.remove('open'); document.body.style.overflow = ''; } });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && vidModal.classList.contains('open')) { vidModal.classList.remove('open'); document.body.style.overflow = ''; } });
+
+/* ─── PRICING TOGGLE ─────────────────────── */
+function togglePr(which, btn) {
+  document.querySelectorAll('.ptog-btn').forEach(function(b) { b.classList.remove('act'); });
+  btn.classList.add('act');
+  document.getElementById('pr-b').style.display = which === 'b' ? '' : 'none';
+  document.getElementById('pr-f').style.display = which === 'f' ? '' : 'none';
+}
+
+/* ─── PLAN SELECTOR ──────────────────────── */
+function selPlan(el, planId, formId) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+  form.querySelectorAll('.plan-opt').forEach(function(o) { o.classList.remove('sel'); });
+  el.classList.add('sel');
+  const hidden = formId === 'frm-buyer' ? document.getElementById('buyer-plan') : document.getElementById('farmer-plan');
+  if (hidden) hidden.value = planId;
+}
+
+/* ─── FORM VALIDATION ────────────────────── */
+function validateForm(form) {
+  let ok = true;
+  form.querySelectorAll('[required]').forEach(function(inp) {
+    const isEmpty = inp.type === 'checkbox' ? !inp.checked : !inp.value.trim();
+    const badEmail = inp.type === 'email' && inp.value && !/.+@.+\..+/.test(inp.value);
+    const bad = isEmpty || badEmail;
+    inp.classList.toggle('err', bad);
+    const errEl = form.querySelector('[data-for="' + inp.name + '"]');
+    if (errEl) { errEl.textContent = isEmpty ? (lang === 'fr' ? 'Ce champ est requis.' : 'This field is required.') : (lang === 'fr' ? 'Email invalide.' : 'Invalid email.'); errEl.classList.toggle('show', bad); }
+    if (bad) ok = false;
+  });
+  return ok;
+}
+
+/* ─── SUBSCRIPTION FORMS ─────────────────── */
+['frm-buyer','frm-farmer'].forEach(function(id) {
+  const form = document.getElementById(id);
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!validateForm(form)) return;
+    const btn = form.querySelector('button[type="submit"]');
+    const orig = btn.textContent;
+    btn.disabled = true; btn.textContent = lang === 'fr' ? 'Traitement…' : 'Processing…';
+    
+    // Aggregate FormData (handle multiple checkboxes with same name)
+    const fd = new FormData(form);
+    const data = {};
+    fd.forEach(function(value, key) {
+      if (data[key]) {
+        if (!Array.isArray(data[key])) data[key] = [data[key]];
+        data[key].push(value);
+      } else {
+        data[key] = value;
+      }
+    });
+
+    const endpoint = id === 'frm-buyer' ? '/api/subscriptions/buyer' : '/api/subscriptions/farmer';
+    fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then(function(r) { return r.json(); })
+      .then(function(json) {
+        if (json.success) {
+          form.style.display = 'none';
+          const sucId = id === 'frm-buyer' ? 'suc-buyer' : 'suc-farmer';
+          document.getElementById(sucId).classList.add('show');
+          toast('ok', T[lang].toast_ok);
+        } else {
+          toast('err', T[lang].toast_err);
+          btn.disabled = false; btn.textContent = orig;
+        }
+      })
+      .catch(function() { toast('err', T[lang].toast_err); btn.disabled = false; btn.textContent = orig; });
+  });
+});
+
+/* ─── AUTHENTICATION ─────────────────────── */
+function checkAuth() {
+  if (!token) return Promise.resolve(null);
+  return fetch('/api/auth/me', { headers: { 'Authorization': 'Bearer ' + token } })
+    .then(r => r.json())
+    .then(json => {
+      if (json.success) {
+        user = json.user;
+        updateUIForAuth();
+        return user;
+      } else {
+        logout();
+        return null;
+      }
+    })
+    .catch(() => { logout(); return null; });
+}
+
+function logout() {
+  token = null; user = null;
+  localStorage.removeItem('fd-token');
+  updateUIForAuth();
+  goPage('home');
+}
+
+function updateUIForAuth() {
+  const dashBtn = document.querySelector('[onclick*="dashboard"]');
+  if (user) {
+    if (dashBtn) dashBtn.textContent = (lang === 'fr' ? 'Dashboard' : 'Dashboard') + ' (' + user.name + ')';
+    document.querySelectorAll('.dash-uname').forEach(el => el.textContent = user.name);
+    document.querySelectorAll('.dash-uemail').forEach(el => el.textContent = user.email);
+  } else {
+    if (dashBtn) dashBtn.textContent = T[lang].nav_dash || 'Dashboard';
+  }
+}
+
+const fLogin = document.getElementById('frm-login');
+fLogin && fLogin.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = fLogin.querySelector('button');
+  btn.disabled = true;
+  const data = Object.fromEntries(new FormData(fLogin).entries());
+  fetch('/api/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(r => r.json())
+  .then(json => {
+    if (json.success) {
+      token = json.token;
+      user = json.user;
+      localStorage.setItem('fd-token', token);
+      updateUIForAuth();
+      toast('ok', 'Bienvenue ' + user.name);
+      goPage('dashboard');
+    } else {
+      toast('err', json.error || 'Erreur de connexion');
+      btn.disabled = false;
+    }
+  })
+  .catch(() => { toast('err', 'Erreur réseau'); btn.disabled = false; });
+});
+
+const fReg = document.getElementById('frm-register');
+fReg && fReg.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = fReg.querySelector('button');
+  btn.disabled = true;
+  const data = Object.fromEntries(new FormData(fReg).entries());
+  fetch('/api/auth/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(r => r.json())
+  .then(json => {
+    if (json.success) {
+      toast('ok', 'Compte créé ! Connectez-vous.');
+      goPage('login');
+    } else {
+      toast('err', json.error || 'Erreur lors de la création');
+      btn.disabled = false;
+    }
+  })
+  .catch(() => { toast('err', 'Erreur réseau'); btn.disabled = false; });
+});
+
+/* ─── CONTACT FORM ───────────────────────── */
+const cForm = document.getElementById('frm-contact');
+cForm && cForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (!validateForm(cForm)) return;
+  const btn = cForm.querySelector('button[type="submit"]');
+  const orig = btn.textContent;
+  btn.disabled = true; btn.textContent = lang === 'fr' ? 'Envoi…' : 'Sending…';
+  const data = Object.fromEntries(new FormData(cForm).entries());
+  fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+    .then(function(r) { return r.json(); })
+    .then(function(json) {
+      if (json.success) { document.getElementById('suc-contact').classList.add('show'); cForm.reset(); toast('ok', T[lang].c_send ? T[lang].suc_ct : 'Sent!'); }
+      else { toast('err', T[lang].toast_err); btn.disabled = false; btn.textContent = orig; }
+    })
+    .catch(function() { toast('err', T[lang].toast_err); btn.disabled = false; btn.textContent = orig; });
+});
+
+/* ─── TOAST ──────────────────────────────── */
+function toast(type, msg) {
+  const wrap = document.getElementById('toast-wrap');
+  const t = document.createElement('div');
+  t.className = 'toast' + (type === 'err' ? ' err' : '');
+  t.innerHTML = '<span>' + (type === 'ok' ? '✅' : '❌') + '</span><span class="toast-msg">' + msg + '</span>';
+  wrap.appendChild(t);
+  requestAnimationFrame(function() { requestAnimationFrame(function() { t.classList.add('show'); }); });
+  setTimeout(function() { t.classList.remove('show'); setTimeout(function() { t.remove(); }, 400); }, 5000);
+}
+
+/* ─── DASHBOARD NAV ──────────────────────── */
+function selDash(el) { document.querySelectorAll('.dash-nav-item').forEach(function(i) { i.classList.remove('act'); }); el.classList.add('act'); }
+
+/* ─── DASHBOARD DATE ─────────────────────── */
+function setDashDate() {
+  const el = document.getElementById('dash-date');
+  if (el) el.textContent = new Date().toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-CA', { month: 'long', year: 'numeric' });
+}
+
+/* ─── INIT ───────────────────────────────── */
+// Apply language first so all data-i18n elements get translated
+// before pages are shown (the IIFE above already called goPage)
+checkAuth();
+applyLang(detectLang());
+initAnims();
+setDashDate();
+</script>
+</body>
+</html>
