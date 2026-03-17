@@ -40,8 +40,10 @@ app.use(helmet({
 // ── CORS ─────────────────────────────────────────────────────
 const allowed = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000').split(',');
 app.use(cors({
-  origin: (origin, cb) => (!origin || allowed.includes(origin)) ? cb(null, true) : cb(new Error('CORS')),
-  credentials: true,
+  origin: (origin, cb) => {
+    console.log('CORS origin:', origin);
+    return (!origin || allowed.includes(origin)) ? cb(null, true) : cb(new Error('CORS'));
+  }
 }));
 
 // ── Compression ───────────────────────────────────────────────
