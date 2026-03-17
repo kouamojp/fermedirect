@@ -10,7 +10,7 @@ COPY package*.json ./
 
 # Install only production dependencies
 RUN npm install
-RUN npm install bcryptjs
+RUN npm install bcryptjs jsonwebtoken
 
 # Bundle app source
 COPY . .
