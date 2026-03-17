@@ -1,0 +1,62 @@
+services:
+  # Node.js Application
+  app:
+    build: .
+    container_name: fd-app
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=${DB_NAME:-fermedirect}
+      - DB_USER=${DB_USER:-root}
+      - DB_PASSWORD=${DB_PASSWORD:-root_password}
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=${JWT_SECRET:-ferme_direct_secret_key_2026}
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - fd-network
+
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: fd-db
+    restart: always
+    environment:
+      - MYSQL_DATABASE=${DB_NAME:-fermedirect}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-root_password}
+    ports:
+      - "3306:3306"
+    volumes:
+      - fd-db-data:/var/lib/mysql
+      # Auto-initialize database with schema.sql
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_PASSWORD:-root_password}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - fd-network
+
+  # Redis for Caching / Rate Limiting
+  redis:
+    image: redis:alpine
+    container_name: fd-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - fd-network
+
+networks:
+  fd-network:
+    driver: bridge
+
+volumes:
+  fd-db-data:
