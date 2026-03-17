@@ -9,8 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install only production dependencies
-RUN npm install
-RUN npm install bcryptjs jsonwebtoken
+RUN npm install bcryptjs jsonwebtoken mysql2 express redis multer cors dotenv
 
 # Bundle app source
 COPY . .
