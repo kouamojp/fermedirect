@@ -41,8 +41,9 @@ app.use(helmet({
 const allowed = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000').split(',');
 app.use(cors({
   origin: (origin, cb) => {
-    console.log('CORS origin:', origin);
-    return (!origin || allowed.includes(origin)) ? cb(null, true) : cb(new Error('CORS'));
+    if (!origin || allowed.includes(origin)) return cb(null, true);
+    // Silently reject instead of throwing
+    return cb(null, false);
   }
 }));
 
